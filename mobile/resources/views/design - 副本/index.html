@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>申请成为设计师</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <div>
+        <div class="nav"><font>申请成为设计师</font></div>
+        <form action="{url('login')}" enctype="multipart/form-data" method="post">
+            <div>姓名：<input type="text" name="user_name" value=""/></div>
+            <div>身份证：<input type="text" name="id_card" value=""/></div>
+            <div>联系电话：<input type="text" name="phone" value=""/></div>
+            <div>专业资质证书：<input type="file" name="certificate" value=""/></div>
+            <div>上传身份证正反面：
+			<input type="file" name="id_A" value=""/>
+			<input type="file" name="id_B" value=""/></div>
+			设计师申请协议
+			<div>协议内容</div>        
+            <input type="submit" value="同意协议并提交"/>          
+        </form>
+    </div>
+</body>
+</html>

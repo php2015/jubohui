@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>外部设计师登录</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .nav{
+            width: 100vw;
+            height: 7vh;
+            background-color:rgba(219,31,27,1);
+            text-align: center;
+            line-height: 7vh;
+        }
+        .nav font{
+            width:9vw;
+            font-size: 3.5vh;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            /*font-family:Source Han Sans CN;*/
+        }
+        .banner{
+            width: 60vw;
+            height: 33.7vh;
+            border: none;
+        }
+        .icon{
+            width: 8vw;
+            margin-right: 1vw;
+        }
+        .but{
+            width:83vw;
+            height:6.5vh;
+            background:rgba(219,31,27,1);
+            border-radius:30vw;
+            display: block;
+            margin: 0 auto;
+            outline: none;
+            border:none;
+        }
+        .but font{
+            width:9vw;
+            font-size: 3.5vh;
+            /*font-family:Source Han Sans CN;*/
+            font-weight:500;
+            color:rgba(255,255,255,1);
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="nav"><font>登录</font></div>
+    <div style="text-align: center;margin-top: 1vw">
+        <img src="__PUBLIC__/assets/manage/img/denglu.png" class="banner">
+    </div>
+    <form>
+        <div style="position: relative;width: 85vw;height: 6vh;border-bottom: 1px solid rgba(0,0,0,1);margin: 0 auto;padding-top: 2vh;">
+            <img src="__PUBLIC__/assets/manage/img/me.png" class="icon">
+            <input type="text" name="user_name" placeholder="请输入你的用户名/手机号" maxlength="11" style="position: absolute;width:65vw;height: 5vh; border:none;outline: none;">
+        </div>
+        <div style="position: relative;width: 85vw;height: 6vh;border-bottom: 1px solid rgba(0,0,0,1);margin: 0 auto;padding-top: 2vh;">
+            <img src="__PUBLIC__/assets/manage/img/mima.png" class="icon">
+            <input type="password" name="password" placeholder="请输入6-20位登录密码" minlength="6" maxlength="20" id="psd" style="position: absolute;width:55vw;height: 5vh; outline: none;border:none;">
+            <img src="__PUBLIC__/assets/manage/img/yingchang.png" class="icon" style="margin-left: 58vw;" id="aa">
+            <img src="__PUBLIC__/assets/manage/img/c620964cd20804dd2e08f40367f3d46.png" class="icon" style="margin-left: 58vw;display: none;" id="bb">
+        </div>
+        <div style="width: 100vw;margin-top: 10vw;">
+            <button class="but"><font>登录</font></button>
+        </div>
+    </form>
+</div>
+<!--    <script src="jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>-->
+<!--    <script src="jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>-->
+<script src="__PUBLIC__/assets/index/css/js/jquery-1.8.2.min.js"></script>
+<script>
+    $(function(){
+        $('#aa').click(function(){
+            $('#psd').attr('type', 'text');
+            $('#aa').css('display','none');
+            $('#bb').css('display','inline-block');
+        });
+        $('#bb').click(function(){
+            $('#psd').attr('type', 'password');
+            $('#bb').css('display','none');
+            $('#aa').css('display','inline-block');
+        });
+    })
+	$('.but').click(function(){
+		var user_name = $('input[name="user_name"]').val();
+		var password = $('input[name="password"]').val();
+		if(user_name == ''){
+			alert("请填写账号");
+			return false;
+		}
+		if(password == ''){
+			alert("请填写密码");
+			return false;
+		}
+		$.ajax({
+		   type: "post",
+		   url: "{url('login')}",
+		   data: {"user_name":user_name,"password":password},
+		   dataType: "json",
+		   success: function(results){	
+				var code = results.code;		
+				var msg = results.msg;
+				<!-- 没有找到该账号 -->
+				if(code == 0){
+					alert(msg);
+				}
+				<!-- 登录成功 -->
+				if(code == 1){
+					alert(msg);
+					<!-- alert(results.url); -->
+					<!-- return false; -->
+					window.location.href= results.url;
+				}
+				<!-- 密码错误 -->
+				if(code == 2){
+					alert(msg);
+				}
+				
+		   }
+		});
+		return false;
+	})
+</script>
+</body>
+</html>

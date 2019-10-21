@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+	<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>工作台</title>
+
+    <script src="__PUBLIC__/assets/manage/css/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/assets/manage/css/js/bootstrap.min.js"></script>
+
+    <!--框架和图标样式-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--下拉样式-->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/assets/manage/css/css/index.css">
+
+</head>
+<style>
+        input::-webkit-input-placeholder{
+            color:#000;
+        }
+       
+    </style>
+<body style="margin-bottom: 100px;">
+<div class="body">
+    <div class="nav">
+        <a href="{url('index')}"><span class="rt_pos"></span></a>
+        <span class="title">工作台</span>
+    </div>
+</div>
+<!-- start 所有下拉选择 -->
+<form action="{url('Work')}" enctype="multipart/form-data" method="post">
+<div class="all">
+	<!-- start 城市 -->
+		<div  class="box1">
+			<select tabindex="1" class="dropdown" name="city_id">
+				<option value="" class="label">城市</option>
+				{foreach $cityList as $city}
+				<option value="{$city[cityId]}" {if $city[cityId] eq $cityId}selected="selected"{/if}>{$city[cityName]}</option>
+				{/foreach}
+			</select>
+		</div>
+	<!-- end 城市 -->
+	
+	<!-- start 楼盘 -->
+		<div class="box">
+			<div class="dropdown custom1">
+				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+					<em style="font-size:15px;">楼盘</em>
+<!--					<i class="caret"></i>-->
+				</button>
+				<ul class="dropdown-menu" {if $loupanList neq ''}style="display:block;"{/if}>
+					<li>
+						<input class="form-control seach_name" name="loupan_name" value="{$loupan_name}" placeholder="搜索内容" />
+						<input style="float: right; width: 28%; transform: translateY(-26px); background:red; border:none; color:white; font-size: 12px" type="submit" value="提交"/>
+					</li>
+					{foreach $loupanList as $loupan}
+					<li data="{$loupan[loupan_id]}"><a id="{$loupan[loupan_id]}">{$loupan[loupan_name]}</a></li>
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+	<!-- end 楼盘 -->
+	<!-- start 户型 -->
+		<input class="box1 huxing zp_input" id="singleSelect" readonly placeholder="户型"/>
+		<div class="tool_tip"></div>
+	<!-- end 户型 -->
+	
+<!-- end 所有下拉选择 -->
+</div>
+</form>
+<div class="conmment" style="display:none;">
+	<div class="maer-top"><p><span>楼盘名称：</span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p></div>
+	<div class="maer-top"><p><span>户型：</span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p></div>
+	<div class="maer-top"><p><span>户型介绍：</span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p></div>
+
+	<!-- 户型图  -->
+	<div class="maer-con">
+		<p><span>户型图</span></p>
+		<div class="maer-img">
+			<img src="__PUBLIC__/assets/manage/img/imggg.png">
+		</div>
+		<!-- 期望 -->
+		<div class="maer-top" style="padding: 6px 20px 5px;"><p><span>期望设计总价：</span><input style="width: 29%; height: 39px; font-size: 11px; color:#000000">(元)</p></div>
+	</div>
+
+	<div class="conmment-list" style="border: none; height: 30vw;text-align: center;">
+		<button class="bug" style="border-radius: 108px 108px 108px 108px;background: rgba(219, 31, 27, 1);margin: 0 auto;color: #EEEEEE;width: 76%;height: 46px;display: block;margin-bottom: -50px;font-size: 21px;position: fixed;left: 0;right: 0;bottom: 137px;">选择设计师</button>
+	</div>
+</div>
+<!-- 底部连接 -->
+<div class="hh">
+    <div style="width:50%;text-align: center ;float:left"><a href="{url('index')}"><img style="width: 40px; height:40px;" src="__PUBLIC__/assets/manage/img/tab_shouye.png" style="color: red"><div style="font-size:15px; color: red">首页</div></a></div>
+    <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 40px; height:40px;" src="__PUBLIC__/assets/manage/img/tab_gongzuotai.png" style="color: red"><div style="font-size:15px; color: red">工作台</div></a></div>
+</div>
+
+<!-- js -->
+    <!-- <script src="__PUBLIC__/assets/manage/css/js/index.js"></script> -->
+    <script>
+        $(function() {
+            //new一个实例
+            new DropdownSearch('.custom1');
+            //new DropdownSearch('.custom2')
+        })
+		<!-- 选择城市 -->
+		$('select[name="city_id"]').change(function(){
+			<!-- var city_id = $(this).val(); -->
+			<!-- console.log(city_id); -->
+			<!-- 楼盘清空 -->
+			$(".dropdown-menu").hide();
+			$('.dropdown-menu li a').empty();
+			<!-- 户型清空 -->
+			var html = '';
+			html += '<select name="huxing_id">';
+			html += '<option value="">请选择</option>';					
+			html += '</select>';
+			$('select[name="huxing_id"]').html(html);
+			<!-- 清空楼盘搜索 -->
+			$('input[name="loupan_name"]').attr("value","");
+			$(".custom1 .btn em").html('楼盘');
+			<!-- 清空户型介绍 -->
+			$("#singleSelect").attr("value",'户型');
+			$(".conmment").css("display","none");
+		})
+		$(".custom1 .btn").click(function(){
+			$(".dropdown-menu").show();
+		})
+		<!-- 选择楼盘 -->
+		$('li a').click(function(){
+			<!-- var this_ = $(this); -->
+			var loupan_id = $(this).attr('id');
+			var loupan_name = $(this).html();
+			<!-- alert(loupan_id); -->
+			<!-- console.log(loupan_name); -->
+			<!-- 已选择楼盘名 -->
+			$('.btn em').html(loupan_name);
+			<!-- 楼盘下拉菜单隐藏 -->
+			$(".dropdown-menu").hide();
+			<!-- 清空户型介绍 -->
+			$("#singleSelect").attr("value",'户型');
+			$(".conmment").css("display","none");
+			$.ajax({
+			   type: "post",
+			   url: "{url('FindLoupan')}",
+			   data: {"loupan_id":loupan_id},
+			   dataType: "json",
+			   success: function(results){	
+					var code = results.code;		
+					var msg = results.msg;
+					var data = results.data;
+					<!-- console.log(code); -->
+					<!-- 报错 -->
+					if(code == 0){
+						alert(msg);
+						$("#singleSelect").click(function(){
+							$(".content").empty();
+						})
+						<!-- 清空户型介绍 -->
+						<!-- $(".conmment").css("opacity","0"); -->
+					}
+					<!-- 取值成功 -->
+					if(code == 1){
+						console.log(data);
+						var single = new Dropdown({
+							dom: 'singleSelect',//点击触发下拉的选择框的id
+							type: 'single',//是单选还是多选 单选 single 多选 multiple
+							title: '单选请选择',//选择框title
+							required: true,//是否必填 true:必填 ，false : 非必填
+							requiredTip: '当前为必填项', // required为true，用户没有选择的提示文案
+							dataArr: data,//选择的选项数据，为3的倍数，不足用 '' 代替
+							success: function (resp) { // 回调函数
+							  console.log(resp);
+							  if(resp.length>0){
+								$('#singleSelect').attr("value",resp[0].cont);
+								var id = resp[0].id;
+								<!-- console.log(id); -->
+								FindHuxing(id);
+							  }
+							}
+						})
+						<!-- console.log(single); -->
+						<!-- var html = ''; -->
+						<!-- html += '<select name="huxing_id">'; -->
+						<!-- html += '<option value="">请选择</option>'; -->
+						<!-- for(var i=0;i<data.length;i++){ -->
+							<!-- html += '<option value ="'+data[i].huxingId+'">'+data[i].huxingName+'</option>'; -->
+						<!-- }					 -->
+						<!-- html += '</select>'; -->
+						<!-- $('select[name="huxing_id"]').html(html); -->
+					}
+					<!-- 未选择楼盘时取消户型显示 -->
+					if(code == 2){
+						var html = '';
+						html += '<select name="huxing_id">';
+						html += '<option value="">请选择</option>';					
+						html += '</select>';
+						$('select[name="huxing_id"]').html(html);
+						<!-- 清空户型介绍 -->
+						$(".manager").empty();
+					}
+			   }
+			});
+		})
+	
+		<!-- 选择户型 -->
+		function FindHuxing(id){
+			var huxing_id = id;
+			$.ajax({
+			   type: "post",
+			   url: "{url('FindHuxing')}",
+			   data: {"huxing_id":huxing_id},
+			   dataType: "json",
+			   success: function(results){	
+					var code = results.code;		
+					var msg = results.msg;
+					var data = results.data;
+					<!-- console.log(data); -->
+					<!-- 报错 -->
+					if(code == 0){
+						<!-- alert(msg); -->
+						$(".manager").empty();
+					}
+					<!-- 取值成功 -->
+					if(code == 1){
+						var html = '';						
+						html += '<form action="__APP__?m=Manage&a=Choose" enctype="multipart/form-data" method="post">';
+						html += '<div class="maer-top"><p><span>楼盘名称：</span>'+data.loupan_name+'</p></div>';
+						html += '<div class="maer-top"><p><span>户型：</span>'+data.huxingName+'</p></div>';
+						html += '<div class="maer-top"><p><span>户型介绍：</span>'+data.huxingMsg+'</p></div>';
+						html += '<div class="maer-con">';
+						html += '<p><span>户型图</span></p>';
+						html += '<div class="maer-img">';
+						html += '<img src="{:_ASHIN_}/'+data.huxingPic+'">';
+						html += '</div>';
+						html += '<div class="maer-top" style="padding: 6px 20px 5px;"><p><span>期望设计总价：</span><input style="width: 29%; height: 39px; font-size: 11px; color:#000000">(元)</p></div>';
+						html += '</div>';
+						html += '<div class="conmment-list" style="border: none; height: 30vw;text-align: center;">';							
+						html += '<input type="hidden" name="huxingId" value="'+data.huxingId+'"/>';
+						html += '<input type="hidden" name="huxing_name" value="'+data.huxingName+'"/>';
+						html += '<input type="hidden" name="loupan_id" value="'+data.loupanId+'"/>';
+						html += '<input type="hidden" name="loupan_name" value="'+data.loupan_name+'"/>';
+						html += '<input type="hidden" name="loupan_img" value="'+data.loupan_img+'"/>';
+						html += '<input type="hidden" name="loupan_introduce" value="'+data.loupan_introduce+'"/>';
+						html += '<input type="hidden" name="huxing_class" value="'+data.huxing_class+'"/>';
+						html += '<input type="hidden" name="huxing_classname" value="'+data.huxing_classname+'"/>';
+						html += '<input type="hidden" name="introduce" value="'+data.huxingMsg+'"/>';
+						html += '<input type="hidden" name="huxing_img" value="'+data.huxingPic+'"/>';	
+						html += '<button class="bug" style="border-radius: 108px 108px 108px 108px;background: rgba(219, 31, 27, 1);margin: 0 auto;color: #EEEEEE;width: 76%;height: 46px;display: block;margin-bottom: -50px;font-size: 21px;position: fixed;left: 0;right: 0;bottom: 137px;">选择设计师</button>';							
+						html += '</div>';							
+						html += '</form>';
+						
+						$(".conmment").css("display","block");
+						$(".conmment").html(html);
+					}				
+			   }
+			});	
+		}
+    </script>
+<script src="__PUBLIC__/assets/manage/js/jquery-1.11.0.min.js"></script>
+<script src="__PUBLIC__/assets/manage/js/dropdown.min.js"></script>
+<!-- <script src="__PUBLIC__/assets/manage/js/index.js"></script> -->
+</body>
+
+</html>

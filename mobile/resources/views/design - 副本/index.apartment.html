@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta http-equiv="Content-Disposition" content="attachment;">
+    <title>户型信息</title>
+	<script src="__PUBLIC__/assets/index/css/js/jquery-1.8.2.min.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .claer{
+            clear: both;
+        }
+     .yemian{
+         width: 100%;
+         height: 44px;
+         text-align:center
+     }
+     .text{
+         text-align:center; height: 44px;background:rgba(238,238,238,1);box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+
+
+
+     }
+     .aa {
+         text-align: center;
+         height: 44px;
+         background:rgba(238,238,238,1);
+         box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+     }
+        .shubiao{
+            width:122px;
+            /*height:147px;*/
+            font-size:12px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(0,0,0,1);
+            /*line-height:36px;*/
+            float:left;
+        }
+        .diannao{
+            width:105px;
+            height:27px;
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 12px 1px rgba(243,96,93,0.29);
+            border-radius:14px;
+            float:right;
+
+        }
+        a{
+            text-decoration:none;
+        }
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+        .imgBox{
+            float: right;
+        }
+        .products .mainCont {
+            display: none;
+            width:100%;
+            overflow: auto;
+            /*text-align: center;*/
+        }
+        .products .mainCont.selected {
+            display: block;
+        }
+        .active a{
+            font-size: 16px;
+            font-weight: 600;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div>
+	<a href="#" onClick="javascript:history.back(-1);">返回</a>
+	<div><img src="{:_ASHIN_}/{$apartment[huxing_img]}" width="50%" height=""/></div>
+	<div>楼盘名称:{$apartment[loupan_name]}</div>
+	<div>户型:{$apartment[huxing_name]}</div>
+	<div>户型介绍:{$apartment[introduce]}</div>
+	<div>期望设计总价:{$apartment[total_price]}</div>
+	<div><a href="{:_ASHIN_}/{$apartment[huxing_img]}">户型图下载</a></div>
+
+</body>
+</html>

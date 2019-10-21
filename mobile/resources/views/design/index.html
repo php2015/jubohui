@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>申请成为设计师</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        input{
+            border: none;
+            outline: none;
+        }
+        .left, .right{
+            display: inline-block;
+            /* height: 72vw; */
+
+        }
+        .left{
+            width: 41vw;
+            margin-left: 2vw;
+        }
+        .right{
+            /* width: 52vw; */
+            margin-left: 4vw;
+        }
+        .title{
+            width:41vw;
+            text-align: center;
+            font-size:2vw;
+            font-family:Source Han Sans CN;
+            font-weight:bold;
+            color:rgba(0,0,0,1);
+            margin-top: 2vw;
+            margin-bottom: 1vw;
+            /* line-height:329px; */
+        }
+        .agreement{
+            border: 1px solid #000;
+            width: 100%;
+            height: 30vw;
+        }
+        .left input{
+            border-radius:3vw;
+            background-color: #EC0C0C;
+            width: 41vw;
+            height: 6vw;
+            margin-top: 4vw;
+            font-size: 2.2vw;
+            font-weight: 900;
+            color: #FFF;
+        }
+        #dd1, #dd1 img{
+            width: 6vw;
+            height: 6vw;
+        }
+        #dd1 img{
+            margin-top: 1vw;
+        }
+        #dd2, #dd2 img, #dd3, #dd3 img{
+            width: 20vw;
+            height: 14vw;
+            display: inline-block;
+        }
+        #dd3 img{
+            margin-left: 4vw;
+            margin-top: 2vw;
+        }
+        .list-size{
+            font-size: 1.5vw;
+            font-family: Source Han Sans CN;
+            font-weight: bold;
+            color: rgba(0,0,0,1);
+            display: inline-block;
+            margin-top: 1vw;
+        }
+        .list-inline{
+            line-height: 4vw;
+            border-bottom: 1px solid #000;
+        }
+    </style>
+    <script src="__PUBLIC__/assets/index/css/js/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+<div class="center">
+    <form action="{url('login')}" method="post" enctype="multipart/form-data">
+        <div class="left">
+            <div class="title">设计师申请协议</div>
+            <div class="agreement">协议内容在此显示</div>
+            <input type="submit" value="同意协议并提交">
+        </div>
+        <div class="right">
+            <ul>
+                <li class="list-inline">
+                    <span class="list-size">姓名</span>
+                    <input type="text" required="required" name="user_name" placeholder="请输入您的姓名">
+                </li>
+                <li class="list-inline">
+                    <span class="list-size">身份证</span>
+                    <input type="text" required="required" name="id_card" placeholder="请输入您的18位身份证号码">
+                </li>
+                <li class="list-inline">
+                    <span class="list-size">联系电话</span>
+                    <input type="text" required="required" name="phone" placeholder="请输入您的联系方式">
+                </li>
+                <li>
+                    <span class="list-size">专业资质证书</span>
+                </li>
+                <li>
+                    <input type="file" name="certificate" id="inputs1" style="display: none;">
+                    <div id='dd1'>
+                        <img src="__PUBLIC__/img/img/tianjia.png">
+                    </div>
+                </li>
+                <li>
+                    <span class="list-size">上传身份证正反面</span>
+                </li>
+                <li class="verso-up">
+                    <input type="file" name="id_a" id="inputs2" style="display: none;">
+                    <div id='dd2'>
+                        <img src="__PUBLIC__/img/img/bug.png">
+                    </div>
+                    <input type="file" name="id_b" id="inputs3" style="display: none;">
+                    <div id='dd3'>
+                        <img src="__PUBLIC__/img/img/body.png">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+<script>
+    $(function(){
+        $("#dd1").click(function(){
+            $("#inputs1").click();
+            $(document).ready(function () {
+                $("#inputs1").change(function () {
+                    var fil = this.files;
+                    for (var i = 0; i < fil.length; i++) {
+                        reads(fil[i]);
+                    }
+                });
+            });
+            function reads(fil){
+                var reader = new FileReader();
+                reader.readAsDataURL(fil);
+                reader.onload = function(){
+                    document.getElementById("dd1").innerHTML = "<img src='"+reader.result+"'>";
+                };
+            }
+        });
+    });
+
+
+    $(function(){
+        $("#dd2").click(function(){
+            $("#inputs2").click();
+            $(document).ready(function () {
+                $("#inputs2").change(function () {
+                    var fil = this.files;
+                    for (var i = 0; i < fil.length; i++) {
+                        reads(fil[i]);
+                    }
+                });
+            });
+            function reads(fil){
+                var reader = new FileReader();
+                reader.readAsDataURL(fil);
+                reader.onload = function(){
+                    document.getElementById("dd2").innerHTML = "<img src='"+reader.result+"'>";
+                };
+            }
+        });
+    });
+
+    $(function(){
+        $("#dd3").click(function(){
+            $("#inputs3").click();
+            $(document).ready(function () {
+                $("#inputs3").change(function () {
+                    var fil = this.files;
+                    for (var i = 0; i < fil.length; i++) {
+                        reads(fil[i]);
+                    }
+                });
+            });
+            function reads(fil){
+                var reader = new FileReader();
+                reader.readAsDataURL(fil);
+                reader.onload = function(){
+                    document.getElementById("dd3").innerHTML = "<img src='"+reader.result+"'>";
+                };
+            }
+        });
+    });
+
+    // function limitJpg(fileId, imgId, urlId) {
+    //     var max_size = 300;// 300k
+    //     var tmpFile = document.getElementById(fileId);
+    //     if (tmpFile.value == '' || tmpFile.value == null) {
+    //         alert("请上传图片");
+    //         return false;
+    //     }
+    //     if (!/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(tmpFile.value)) {
+    //         alert("图片类型必须是[.gif,jpeg,jpg,png]中的一种");
+    //         tmpFile.value = "";
+    //         return false;
+    //     } else {
+    //         var fileData = tmpFile.files[0];
+    //         var size = fileData.size;
+    //         if (size > max_size * 1024) {
+    //             alert("图片大小不能超过300k");
+    //             tmpFile.value = "";
+    //         } else {
+    //             ajaxFileUpload(fileId, imgId, urlId);
+    //         }
+    //     }
+    // }
+</script>
+</body>
+</html>

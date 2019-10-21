@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单详情</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .yemian{
+            width: 100%;
+            height: 44px;
+            text-align:center
+        }
+        .yemian img{
+            margin: 11px 0px 11px 30px;
+        }
+        .yemian p{
+            font-size: 18px;
+            line-height: 44px;
+            margin: 0px;
+        }
+        .state{
+            height: 44px;
+            background-color: rgba(238, 238, 238, 1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        }
+        .state p{
+            font-size: 18px;
+            font-family:Source Han Sans CN;
+            color: rgba(0, 0, 0, 1);
+            margin: 0px 0px 0px 14px;
+            line-height: 44px;
+        }
+        .state span{
+            font-size: 12px;
+            color: rgba(219, 31, 27, 1);
+        }
+        .cont{
+            position: relative;
+        }
+        .line{
+            position: absolute;
+            top: 120px;
+            left: 48px;
+            height: 160px;
+            border-left: 1px solid rgba(212,23,45,1);
+            z-index: -99;
+        }
+        .user li{
+            height: 50px;
+        }
+        .user li i{
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: rgba(85, 85, 85, 1);
+            display: inline-block;
+            margin: 0px 10px 0px 0px;
+        }
+        .user .enter i{
+            background-color: rgba(206, 16, 16, 1);
+        }
+        .user li p{
+            width: 50%;
+            color: rgba(0, 0, 0, 1);
+            font-size:15px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            display: inline-block;
+        }
+        .user li span{
+            color:rgba(219,31,27,1);
+            font-size: 11px;
+        }
+        .user-information li{
+            height: 40px;
+            border-bottom: 1px solid rgba(212, 23, 45, 1);
+            margin-right: 40px;
+        }
+        .user-information em{
+            font-size:14px;
+            font-family:Source Han Sans CN;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            line-height:24px;
+            font-style: normal;
+            width: 65px;
+            height: 24px;
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 7px 1px rgba(0, 0, 0, 0.29);
+            display: inline-block;
+            padding-left: 5px;
+            margin-right: 10px;
+        }
+        .user-information p{
+            color: rgba(0, 0, 0, 1);
+            display: inline-block;
+            font-size:14px;
+            font-family:Source Han Sans CN;
+            font-weight:500;
+            line-height:24px;
+        }
+    </style>
+</head>
+<body>
+<div class="cont">
+    <div class="yemian" style="background: #ff0000;">
+        <a href="{url('order')}"><img src="__PUBLIC__/assets/index/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 19px; height: 22px; float: left;"></a>
+        <p style="color: rgba(255, 255, 255, 1);">订单详情</p>
+    </div>
+    <div class="state">
+        <p>当前状态：<span>第{$orderOne['current_stage']}阶段</span></p>
+    </div>
+    <div class="line"></div>
+    <ul class="user">
+        <li {if $stageLast['c1'] == 1}class="enter"{/if}><i></i><p>{$stageLast['s1']}</p><span>{if $stageLast['t1']}{$stageLast['t1']|date="m-d H:i",###}{/if}</span></li>
+        <li {if $stageLast['c2'] == 1}class="enter"{/if}><i></i><p>{$stageLast['s2']}</p><span>{if $stageLast['t2']}{$stageLast['t2']|date="m-d H:i",###}{/if}</span></li>
+        <li {if $stageLast['c3'] == 1}class="enter"{/if}><i></i><p>{$stageLast['s3']}</p><span>{if $stageLast['t3']}{$stageLast['t3']|date="m-d H:i",###}{/if}</span></li>
+        <li {if $stageLast['c4'] == 1}class="enter"{/if}><i></i><p>{$stageLast['s4']}</p><span>{if $stageLast['t4']}{$stageLast['t4']|date="m-d H:i",###}{/if}</span></li>
+    </ul>
+    <ul class="user-information">
+        <li><p><em>订单号:</em>{$orderOne['order_sn']}</p></li>
+        <li><p><em>用户名:</em>{$orderOne['user_name']}</p></li>
+        <li><p><em>用户手机:</em>{$orderOne['mobile_phone']}</p></li>
+        <li><p><em>用户地址:</em>{$orderOne['region']}</p></li>
+    </ul>
+</div>
+</body>
+</html>

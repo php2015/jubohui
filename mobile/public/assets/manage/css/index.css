@@ -1,0 +1,55 @@
+.box {
+    margin: 0px auto;
+    width: 500px;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+em {
+    font-style: normal;
+}
+.dropdown {
+    /*width: 300px;*/
+   float: left;
+}
+.dropdown button {
+    width: 100%;
+    text-align: left;
+    border: solid 1px #e1e1e1;
+    background: RGBA(255, 255, 255, 1) !important;
+    border-radius: 3px;
+    height: 62px;
+   
+}
+.dropdown button i {
+    float: right;
+    margin-top: 8px;
+}
+.dropdown ul {
+    width: 100%;
+    margin: 0 0 0 -30px;
+    text-align: left;
+    border: solid 1px #e1e1e1;
+    background: #fff !important;
+    border-radius: 3px;
+    height: 735%;
+}
+.dropdown ul input {
+    height: 59px;
+    padding: 3px 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    width: 100%;
+    font-size:13px;
+}
+.dropdown-menu li:first-child {
+    position: relative;
+    padding: 5px 10px;
+}
+.dropdown-menu li:first-child i {
+    position: absolute;
+    top: 23px;
+    right: 25px;
+    font-size: 28px;
+}

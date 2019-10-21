@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=yes"/>
+    <title>选择项目经理</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .yemian{
+            width: 100%;
+            height: 44px;
+            text-align:center
+        }
+        .yemian img{
+            margin: 11px 0px 11px 10px;
+        }
+        .yemian p{
+            font-size: 18px;
+            line-height: 44px;
+          margin: 0 42px 0 0px;
+        }
+
+        #search{
+            width:100%;
+            height:38px;
+            background:rgba(238,238,238,1);
+            box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+        input{
+            width: 80%;
+            border: 1px solid #e2e2e2;
+            height: 30px;
+            margin: 0 auto;
+            /* background-image: url(images/search.jpg); */
+            /* padding: 0 0 0 40px; */
+            text-align: center;
+            display: inherit;
+            margin-top: 4px;
+            /*background:#EEEEEE url("../index/img/search.png") no-repeat;*/
+            background-size: 16px 16px;
+            background-position: 40% center;
+        }
+        /*#search{*/
+        /*    width: 78px;*/
+        /*    !*height: 32px;*!*/
+        /*    float: right;*/
+        /*    background: black;*/
+        /*    color: white;*/
+        /*    text-align: center;*/
+        /*    line-height: 32px;*/
+        /*    cursor: pointer;*/
+        /*}*/
+        .manager{
+
+        }
+        li{
+            list-style: none;
+        }
+        .manager li{
+            height: 56px;
+            margin-right: 40px;
+            border-bottom:1px solid rgba(212,23,45,1);
+
+        }
+        .manager img{
+            width: 40px;
+            height: 40px;
+        }
+        .manager .head{
+            margin: 5px;
+        }
+        /*.manager .phone{*/
+        /*    margin-left: 80px;*/
+        /*}*/
+        .manager span{
+            height: 56px;
+            font-size:14px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(0,0,0,1);
+            line-height:36px;
+            display: inline-block;
+        }
+        /*.manager div{*/
+        /*    width:14px;*/
+        /*    height:14px;*/
+        /*    !*border:1px solid rgba(0,0,0,1);*!*/
+        /*    !*border-radius:50%;*!*/
+        /*    display: inline-block;*/
+        /*    float: right;*/
+        /*    margin: 21px 10px 0px 0px;*/
+        /*}*/
+        /*display: none;*/
+        .manager .choose{
+            width: 16px;
+            height: 16px;
+            background-image: url(__PUBLIC__/assets/manage/img/a7e9deff88fe5551e27a4fc9720a07d.png);
+        }
+
+        .dianhua{
+            float: right;
+            position: relative;
+            left: -50px;
+            top: -37px;
+        }
+        .erji{
+            width:14px;
+            height:14px;
+            border:1px solid rgba(0,0,0,1);
+            opacity:0.2;
+            border-radius:50%;
+            float: right;
+            position: relative;
+            left: 20px;
+            top: -20px;
+            /*position: relative;left: 20px;top: -20px;*/
+        }
+        .kuku{
+            position: relative;
+            left: 1px;
+            top: 15px;
+        }
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+
+
+        }
+        .hh a{
+            text-decoration: none;
+            color: rgba(206, 16, 16, 1);
+        }
+        .circleIcon{
+            display: inline-block;
+            float: right;
+            width:14px;
+            height:14px;
+            border:1px solid rgba(0,0,0,1);
+            opacity:0.2;
+            border-radius:50%;
+            margin-top: 15px;
+        }
+        .bug{
+            margin: 0 auto;
+            border-radius: 108px 108px 108px 108px;
+            background: #DB1F1B;
+            color: #EEEEEE;
+            width: 50%;
+            height: 45px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .radio{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .radio img{
+            display: none;
+        }
+        .radio.on img{
+            display: block;
+        }
+        .radio.on i{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="yemian" style="background: #ff0000;">
+        <a href="{url('Work')}"><img src="__PUBLIC__/assets/manage/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 19px; height: 22px; float: left;"></a>
+        <p style="color: rgba(255, 255, 255, 1);">选择设计师</p>
+    </div>
+    <div id="search">
+		<form action="__APP__?m=Manage&a=Choose" enctype="multipart/form-data" method="post">
+        <input type="text" name="design_name" placeholder="搜索设计师名字" value="{$design_name}">
+		<input type="hidden" name="huxingId" value="{$huxingId}"/>
+		<input type="hidden" name="huxing_name" value="{$huxing_name}"/>
+		<input type="hidden" name="loupan_id" value="{$loupan_id}"/>
+		<input type="hidden" name="loupan_name" value="{$loupan_name}"/>
+		<input type="hidden" name="loupan_img" value="{$loupan_img}"/>
+		<input type="hidden" name="loupan_introduce" value="{$loupan_introduce}"/>
+		<input type="hidden" name="huxing_class" value="{$huxing_class}"/>
+		<input type="hidden" name="huxing_classname" value="{$huxing_classname}"/>
+		<input type="hidden" name="introduce" value="{$introduce}"/>
+		<input type="hidden" name="huxing_img" value="{$huxing_img}"/>
+		<input type="hidden" name="price" value="{$price}"/>
+		<input type="hidden" name="design_data" value="{$design_data}"/>
+        <input style="float: right; width: 11%; transform: translateY(-36px); background:#6e6e6e; border:none; color:white;    margin: 2px 23px 0px 0px; height: 34px;" type="submit" value="提交"/>
+                <div id="search">搜索</div>
+		</form>
+	</div>
+    <ul class="manager">
+	{foreach $userList as $user}
+        <li style="display: flex; ">
+            <div class="design" style="width: 70%;flex-direction:column;position: relative; ">
+				<a href="__APP__?m=Manage&a=Design&id={$user['user_id']}&huxingId={$huxingId}&huxing_name={$huxing_name}&loupan_id={$loupan_id}&loupan_name={$loupan_name}&loupan_img={$loupan_img}&loupan_introduce={$loupan_introduce}&huxing_class={$huxing_class}&huxing_classname={$huxing_classname}&introduce={$introduce}&huxing_img={$huxing_img}&price={$price}&design_name={$design_name}{if $design_data}&design_data={$design_data}{/if}">
+					<img class="head" src="__PUBLIC__/assets/manage/img/f96c22bab0a72a78bde7e439e348ea0.png">
+					<span style="position: absolute;top: 10px">{$user['design_name']}</span>
+					<span style="position: absolute;top: 10px; text-align: right; left: 126px; color: #fc0000">{if $user['msg']}{$user['msg']}{/if}</span>
+				</a>
+            </div>
+            <div style="width: 30%;flex-direction:column;text-align: right;">
+                <img class="phone" src="__PUBLIC__/assets/manage/img/14dab407a13d128e6ddf999f3f03b4d.png">
+                <!--                <img class="phone" style="width: 25px;height: 25px;" src="../index/img/a7e9deff88fe5551e27a4fc9720a07d.png">-->
+                <a id="{$user['user_id']}" class="radio 
+				{foreach $designList as $design}
+				{if $design eq $user['user_id']}on{/if}
+				{/foreach}
+				"><i class="circleIcon"></i><img class="phone" style="width: 15px;height: 15px;vertical-align: top; margin-top: 15px" src="__PUBLIC__/assets/manage/img/a7e9deff88fe5551e27a4fc9720a07d.png"></a>
+            </div>
+        </li>
+	{/foreach}
+    </ul>
+
+    <div class="hh">
+        <div>
+            <!--        <button class="bug"><img style="width: 50%" src="img/buttonnn.png"></button>-->
+            <button class="bug">派发任务</button>
+        </div>
+
+       <div style="width: 100%;background: #fff;box-shadow:0px 0px 5px 1px rgba(0, 0, 0, 0.05);">
+           <div style="width:50%;text-align: center ;float:left"><a href="{url('Adjusting')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/manage/img/tab_shouye.png" style="color: red"><div>首页</div></a></div>
+           <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/manage/img/tab_gongzuotai.png" style="color: red"><div>工作台</div></a></div>
+       </div>
+    </div>
+</div>
+</body>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script type="text/javascript">
+    $('.radio').click(function () {
+        $(this).toggleClass('on');
+		<!-- 保存被选择的design_id -->
+		var designData = [];
+		$(".on").each(function(i){
+			designData += $(this).attr('id')+",";		
+		})
+		<!-- console.log(designData); -->
+		if(designData){
+			<!-- 去掉字符串中最后一个逗号 -->
+			designData = designData.substring(0,designData.length-1);
+			<!-- console.log(designData); -->
+			$('input[name="design_data"]').attr("value",designData);
+			$(".design a").each(function(){
+				var link = $(this).attr("href");
+				<!-- console.log(link); -->
+				if(link.indexOf("design_data=") > 0){
+					<!-- console.log('1'); -->
+					<!-- 有选择就累加 -->
+					var design_data = getCaption(link);
+					var link_ = link.replace(design_data, 'design_data=' + designData);
+				}else{
+					<!-- console.log('2'); -->
+					<!-- 未选择就新增 -->
+					var link_ = link+'&design_data='+designData;
+				}
+				<!-- console.log(link_);			 -->
+				$(this).attr("href",link_);	
+			})		
+		}
+    })
+	function getCaption(obj){
+		var index=obj.lastIndexOf("\&");
+		obj=obj.substring(index+1,obj.length);
+	//  console.log(obj);
+		return obj;
+	}
+	
+	$('button').click(function(){
+		var huxingId = $('input[name="huxingId"]').val();
+		var huxing_name = $('input[name="huxing_name"]').val();
+		var loupan_id = $('input[name="loupan_id"]').val();
+		var loupan_name = $('input[name="loupan_name"]').val();
+		var loupan_img = $('input[name="loupan_img"]').val();
+		var loupan_introduce = $('input[name="loupan_introduce"]').val();
+		var huxing_class = $('input[name="huxing_class"]').val();
+		var huxing_classname = $('input[name="huxing_classname"]').val();
+		var introduce = $('input[name="introduce"]').val();
+		var huxing_img = $('input[name="huxing_img"]').val();
+		var price = $('input[name="price"]').val();
+		
+		<!-- 被选中的设计师 -->
+		var designData = [];
+		$(".on").each(function(i){
+			designData += $(this).attr('id')+",";		
+		})		
+		<!-- console.log(designData); -->
+		<!-- return false; -->
+		
+		if(designData == ''){
+			alert("请选择设计师");
+			return false;
+		}else{
+			<!-- 去掉字符串中最后一个逗号 -->
+			designData = designData.substring(0,designData.length-1);
+		}
+		
+		$.ajax({
+		   type: "post",
+		   url: "{url('ChooseDesign')}",
+		   data: {"huxingId":huxingId,"huxing_name":huxing_name,"loupan_id":loupan_id,"loupan_name":loupan_name,"loupan_img":loupan_img,"loupan_introduce":loupan_introduce,"huxing_class":huxing_class,"huxing_classname":huxing_classname,"introduce":introduce,"huxing_img":huxing_img,"price":price,"designData":designData},
+		   dataType: "json",
+		   success: function(results){	
+				var code = results.code;		
+				var msg = results.msg;
+				<!-- var data = results.data; -->
+				<!-- console.log(data); -->
+				<!-- 报错 -->
+				if(code == 0){
+					alert(msg);
+				}
+				<!-- 取值成功 -->
+				if(code == 1){
+					alert(msg);
+					window.location.href= results.url;
+				}				
+		   }
+		});
+	})
+    // var $radios=$('.radio');
+    // $radios.click(function(){
+    //     $radios.removeClass('on');
+    //     $(this).addClass('on');
+    // })
+</script>
+</html>

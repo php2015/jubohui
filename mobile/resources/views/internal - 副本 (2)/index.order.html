@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单管理</title>
+    <style type="text/css">
+        .claer{
+            clear: both;
+        }
+        .yemian{
+            width: 100%;
+            height: 44px;
+            text-align:center
+        }
+        .text{
+            text-align:center;
+            height: 44px;
+            background:rgba(238,238,238,1);
+            box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+        }
+        .aa {
+            text-align: center;
+            height: 44px;
+            background:rgba(238,238,238,1);
+            box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+        }
+        .shubiao{
+            width:122px;
+            /*height:147px;*/
+            font-size:12px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(0,0,0,1);
+            /*line-height:36px;*/
+
+        }
+        .diannao{
+            width:105px;
+            height:27px;
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 12px 1px rgba(243,96,93,0.29);
+            border-radius:14px;
+
+
+        }
+        a{
+            text-decoration:none;
+        }
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+        .imgBox{
+            float: right;
+        }
+        .tizi{
+            width:60px;
+            /*height:37px;*/
+            border:1px solid rgba(206,16,16,1);
+            border-radius:19px;
+            float: right;
+            transform:translateY(-8px);
+        }
+        .tikan{
+            /*width:72px;*/
+            height:14px;
+            font-size:5px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(219,31,27,1);
+            /*line-height:36px;*/
+            /*position: relative;left: -51px; top: 10px*/
+            /*position: relative; left: 31px;top: 12px;*/
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="yemian" style="background: #ff0000;"><a href="{url('Adjusting')}"><img src="__PUBLIC__/img/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 19px; height: 22px; float: left"></a><p style="color: rgba(255, 255, 255, 1);">订单管理</p><img style="width: 30px; height: 30px;  position: relative; left: 130px; top: -30px; float: none; " src="__PUBLIC__/img/img/f2992f9a43d7d6b87192326f1e22533.png"></div>
+    <div>
+        <div id="left" style="width:50%;float:left;  color: red;" class="text"><a href="#" style="color: red">全部</a></div>
+        <div id="right" style="width:50%;float:left;  color: red;" class="aa"><a href="#" style="color: red">筛选</a></div>
+    </div>
+    <div>
+	{foreach $orderList as $order}
+        <div>
+            <div class="shubiao" style="float: left">订单号{$order['order_sn']} {$order['user_name']} | {$order['mobile_phone']} 下单日期 {$order['add_time']|date="Y-m-d",###}</div>
+
+            <div style="float: right; position: relative;left: -51px; top: 10px">
+                <a href="__APP__?m=internal&a=Stage&id={$order['order_id']}"><img style="width: 13px; height: 22px;  float: right; position: relative; left: 31px;top: 12px;" src="__PUBLIC__/img/img/arrow-right.png"></a>
+                <div style="float: right">
+                    <a href="__APP__?m=internal&a=Base&id={$order['order_id']}" class="diannao" style="display: block">基装详情查看</a>
+                    <div class="tizi" style="margin-top: 20px">
+                        <div class="tikan">第{$order['current_stage']}阶段 {$order['msg']}</div>
+                    </div>
+                </div>
+
+                <div class="claer"></div>
+            </div>
+
+            <div class="imgBox"></div>
+            <div class="claer"></div>
+        </div>
+
+        <hr style="height:1px;border:none;border-top:1px solid #ff0000;" />
+	{/foreach}	
+	</div>
+    </div>
+    <div class="hh">
+        <div style="width:50%;text-align: center ;float:left"><a href="{url('Adjusting')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/img/img/tab_shouye.png" style="color: red"><div>首页</div></a></div>
+        <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/img/img/tab_gongzuotai.png" style="color: red"><div>工作台</div></a></div>
+    </div>
+</div>
+</body>
+</html>

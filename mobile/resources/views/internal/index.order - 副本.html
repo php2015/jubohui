@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<!--    <script src="jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>-->
+    <link type="text/css" rel="stylesheet" href="../index/css/css/demo.css">
+    <script src="__PUBLIC__/assets/index/css/js/jquery-1.8.2.min.js"></script>
+    <script src="__PUBLIC__/assets/index/css/js/demo.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单管理</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        .claer {
+            clear: both;
+        }
+
+        .yemian {
+            width: 100%;
+            height: 44px;
+            text-align: center
+        }
+
+        .yemian img {
+            margin: 11px 0px 11px 20px;
+        }
+
+        .yemian span {
+            font-size: 18px;
+            line-height: 44px;
+            margin: 0px;
+        }
+
+        .yemian .glass {
+            width: 30px;
+            height: 30px;
+            float: right;
+            margin: 7px 20px 7px 0px;
+        }
+
+        .all {
+            width: 100%;
+            height: 44px;
+            background: rgba(238, 238, 238, 1);
+            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+            margin: 0px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .all li {
+            width: 35%;
+            line-height: 44px;
+            font-size: 15px;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(219, 31, 27, 1);
+            display: inline-block;
+        }
+
+        .all .line {
+            width: 5px;
+            margin: 0 10px;
+        }
+
+        .all i {
+            float: right;
+            font-style: normal;
+        }
+
+        .information p {
+            font-size: 12px;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 1);
+            line-height: 18px;
+        }
+
+        .products {
+            /*margin: 20px 40px;*/
+        }
+
+        .text {
+            text-align: center;
+            height: 44px;
+            background: rgba(238, 238, 238, 1);
+            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+        }
+
+        .aa {
+            text-align: center;
+            height: 44px;
+            background: rgba(238, 238, 238, 1);
+            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+        }
+
+        .shubiao {
+            width: 122px;
+            /*height:147px;*/
+            font-size: 12px;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 1);
+            /*line-height:36px;*/
+
+        }
+
+        .diannao {
+            /*width:105px;*/
+            height: 27px;
+            background: rgba(206, 16, 16, 1);
+            box-shadow: 0px 0px 12px 1px rgba(243, 96, 93, 0.29);
+            border-radius: 14px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .hh {
+            margin: 0 auto;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .imgBox {
+            float: right;
+        }
+
+        .tizi {
+            width: 60px;
+            /*height:37px;*/
+            border: 1px solid rgba(206, 16, 16, 1);
+            border-radius: 19px;
+            float: right;
+            transform: translateY(-8px);
+        }
+
+        .tikan {
+            /*width:72px;*/
+            height: 14px;
+            font-size: 5px;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(219, 31, 27, 1);
+            /*line-height:36px;*/
+            /*position: relative;left: -51px; top: 10px*/
+            /*position: relative; left: 31px;top: 12px;*/
+        }
+
+        .products .mainCont {
+            display: none;
+            width: 100%;
+            /*overflow: auto;*/
+            /*text-align: center;*/
+        }
+
+        .products .mainCont.selected {
+            display: block;
+        }
+        .stateIcon{
+            width: 60px;
+            height: 18px;
+            border: 1px solid rgba(206,16,16,1);
+            border-radius: 19px;
+            text-align: center;
+            line-height: 18px;
+            font-size: 9px;
+            color: #DB1F1B;
+            margin-top: 14px;
+            margin-left: 22%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="yemian" style="background: #ff0000;">
+        <a href="{url('Adjusting')}"><img src="__PUBLIC__/assets/index/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 19px; height: 22px; float: left;"></a>
+        <span style="color: rgba(255, 255, 255, 1);">订单详情</span>
+        <img class="glass" style="width: 30px; height: 30px;" src="__PUBLIC__/assets/index/img/searchIcon.png">
+    </div>
+    <ul class="all">
+        <li><a href="{url('Order')}">全部</a><i><img style=" height: 9px" src="__PUBLIC__/assets/index/img/xiala.png"></i></li>
+        <li class="line">|</li>
+        <li>筛选<i><img style="height: 9px" src="__PUBLIC__/assets/index/img/xiala.png"></i></li>
+    </ul>
+	<div>
+		<form action="__APP__?m=internal&a=Order" enctype="multipart/form-data" method="post">
+			选择阶段：
+			<select name="stage">
+			  <option value="">请选择</option>
+			  <option value="1" {if $stage eq 1}selected{/if}>第一阶段</option>
+			  <option value="2" {if $stage eq 2}selected{/if}>第二阶段</option>
+			  <option value="3" {if $stage eq 3}selected{/if}>第三阶段</option>
+			  <option value="4" {if $stage eq 4}selected{/if}>第四阶段</option>
+			</select>
+			选择状态：
+			<select name="state">
+			  <option value="" {if $state eq ''}selected{/if}>请选择</option>
+			  <option value="0" {if $state eq 0 and $state neq ''}selected{/if}>项目经理未入住</option>
+			  <option value="1" {if $state eq 1}selected{/if}>项目经理已入住</option>
+			  <!-- <option value="1">项目经理申报未验收</option> -->
+			  <option value="2" {if $state eq 2}selected{/if}>项目经理申报已验收</option>
+			  <!-- <option value="2">质检未确认</option> -->
+			  <option value="3" {if $state eq 3}selected{/if}>质检已确认</option>
+			  <!-- <option value="3">用户未确认</option> -->
+			  <option value="4" {if $state eq 4}selected{/if}>用户已确认</option>
+			</select>
+			<input type="submit" value="提交"/>
+		</form>	
+	</div>
+</div>
+
+<div>
+	{foreach $orderList as $order}
+    <div class="contList">
+        <div style="display: flex;   padding:10px">
+            <div style="flex-direction:column;width: 50%; padding:10px; border-bottom: 1px solid #f00;">
+                <div style=""><b style="font-size:14px ">订单：{$order['order_sn']}</b></div>
+                <div><b style="font-size:14px ">{$order['user_name']}|{$order['mobile_phone']}</b></div>
+                <div><b style="font-size:14px ">下单日期 {$order['add_time']|date="Y-m-d",###}</b></div>
+            </div>			
+            <div style="flex-direction:column;width: 50%; padding:10px; border-bottom: 1px solid #f00;">
+                <div>
+                    <span style="color: #fff;background: #f00;padding: 7px;border-radius: 20px;font-size: 13px;"><a href="__APP__?m=internal&a=Base&id={$order['order_id']}" style="color:white;">基装详情查看</a></span>
+                    <div class="stateIcon">第{$order['current_stage']}阶段 <br/> {$order['msg']}</div>
+                </div>
+				{if $order['day'] > 15 and $order['is_ooo'] eq 0}
+				<a class="bubbling" o_id="{$order['order_id']}" style="font-size:10px; color:red;">15天冒泡</a>
+				{/if}
+                <div style="float: right;"><a href="__APP__?m=internal&a=Stage&id={$order['order_id']}"><img style="width: 16px;" src="__PUBLIC__/assets/index/img/arrow-right.png"></a></div>
+
+            </div>
+        </div>
+    </div>
+	{/foreach}
+</div>
+</div>
+<div class="hh">
+    <div style="width:50%;text-align: center ;float:left"><a href="{url('Adjusting')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/index/img/tab_shouye.png" style="color: red">
+        <div style="color: red">首页</div>
+    </a></div>
+    <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/index/img/tab_gongzuotai.png" style="color: red">
+        <div style="color: red">工作台</div>
+    </a></div>
+</div>
+</div>
+<script type="text/javascript">
+	<!-- 冒泡点击事件 -->
+	$(".bubbling").click(function(){
+		var this_ = $(this);
+		var id = $(this).attr('o_id');		
+		$.ajax({
+		   type: "post",
+		   url: "{url('Bubbling')}",
+		   data: {"id":id},
+		   dataType: "json",
+		   success: function(results){	
+				var code = results.code;		
+				var msg = results.msg;
+				<!-- 报错 -->
+				if(code == 0){
+					alert(msg);
+				}
+				<!-- 提醒成功 -->
+				if(code == 1){
+					this_.remove();
+				}
+		   }
+		});
+	})
+</script>
+</body>
+</html>

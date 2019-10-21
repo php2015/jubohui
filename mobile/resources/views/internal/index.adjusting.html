@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .cont{
+            width: 100%;
+            height: 850px;
+            background-color: rgba(238, 238, 238, 1);
+            position: absolute;
+        }
+        .yemian{
+            height: 720px;
+            position: relative;
+            overflow: hidden;
+        }
+        .red-box{
+            margin: 0 auto;
+            width: 6000px;
+            height: 6000px;
+            border-radius: 50%;
+            background-color: #ce1010;
+            position: absolute;
+            left: -250%;
+            bottom: 0px;
+        }
+        .top{
+            width: 100%;
+            height: 584px;
+            position: relative;
+            top: -720px;
+        }
+        .top .aa{
+            padding-top: 64px;
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .top .thing{
+            padding-top: 92px;
+            font-size: 42px;
+            font-weight: bold;
+        }
+        .top .bb{
+            padding-top: 28px;
+            font-size: 120px;
+        }
+        .top .cc{
+            padding-top: 50px;
+            font-size: 42px;
+            font-weight: bold;
+        }
+        .top p{
+            text-align: center;
+            color: #FFFFFF;
+        }
+        .dingdan{
+            margin: 0 auto;
+            width: 840px;
+            height: 180px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.21);
+            border-radius: 16px;
+            position: relative;
+            top: -700px;
+        }
+        .dingdan-1{
+            margin: 0px 38px;
+            float: left;
+        }
+        .dingdan span{
+            font-size: 60px;
+            font-family: Source Han Sans CN;
+            font-weight: bold;
+            color: rgba(0,0,0,1);
+            margin: 10px 0px;
+
+        }
+        .dingdan p{
+            font-size: 40px;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(0,0,0,1);
+            opacity: 0.6;
+        }
+        .month{
+            margin: 25px 46px 22px 46px;
+            float: left;
+            /*display: flex;*/
+            /*flex-direction: row;*/
+        }
+        .classify{
+            padding: 50px 0;
+            width: 100%;
+            height: 650px;
+            /*background-color: pink;*/
+            position: absolute;
+            top: 850px;
+        }
+        .classify .classify-item{
+            margin: 0 52px;
+            width: 220px;
+            height: 320px;
+            text-align: center;
+            float: left;
+        }
+        .classify-item img{
+            width: 120px;
+            height: 120px;
+            margin-top: 20px;
+        }
+        .classify-item p{
+            font-size: 42px;
+            font-family: Source Han Sans CN;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .classify-item i{
+            margin: 30px 30px 0;
+            line-height: 48px;
+            width: 160px;
+            height: 48px;
+            font-style: normal;
+            font-weight: bold;
+            background-color: rgba(238, 238, 238, 1);
+            display: block;
+            border-radius: 22px;
+        }
+        .classify-item span{
+            text-align: center;
+            font-size: 32px;
+            font-family: Source Han Sans CN;
+            color: rgba(170, 170, 170, 1);
+        }
+        .foot{
+            padding: 0px 180px;
+            margin-top: 90px;
+            border-top: 2px solid rgba(0,0,0,0.05);
+            height: 160px;
+            background:rgba(255,255,255,1);
+            box-shadow:0px 0px 5px 1px rgba(0, 0, 0, 0.05);
+        }
+        .foot img{
+            width: 90px;
+            height: 90px;
+        }
+        .footer{
+            margin: 5px 80px;
+            width: 130px;
+            float: left;
+            text-align: center;
+        }
+        .footer a{
+            text-decoration: none;
+            color: #ce1010;
+            font-size: 42px;
+        }
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            /*top: 120px;*/
+            right:0;
+            bottom:0;
+            width:750px;
+            height:145px;
+            background:rgba(255,255,255,1);
+            box-shadow:0px 0px 5px 1px rgba(0, 0, 0, 0.05);
+        }
+        a{ text-decoration:none; color:white;}
+    </style>
+</head>
+<body>
+<div class="cont">
+    <div class="yemian">
+        <div class="red-box"></div>
+    </div>
+    <div class="top" >
+        <p class="aa">首页</p>
+        <div><span style="float: right;padding-right: 4%"><a href="{url('SignOut')}" onclick="if (!confirm('是否退出？')) return false;"><img style="width: 50px;" src="__PUBLIC__/assets/index/img/shezhi.png"></a></span></div>
+        <p class="thing">待办事项</p>
+        <p class="bb">{$orderCount}</p>
+        <p class="cc"><a href="{url('Order')}">订单管理</a><span>&nbsp;&gt;</span></p>
+    </div>
+    <div class="dingdan">
+        <div class="dingdan-1">
+            <div class="month">
+                <span>{$lastOrder}</span>
+                <p>上月订单</p>
+            </div>
+            <div class="month">
+                <span>{$todayOrder}</span>
+                <p>今日订单</p>
+            </div>
+            <div class="month">
+                <span>{$monthOrder}</span>
+                <p>本月订单</p>
+            </div>
+        </div>
+    </div>
+    <div class="classify">
+        <div class="classify-item">
+            <img src="__PUBLIC__/assets/index/img/4f25d15bc1a3190ac424e588a96c7cf.png" alt="">
+            <p>审批</p>
+            <i><span>开发中</span></i>
+        </div>
+        <div class="classify-item">
+            <img src="__PUBLIC__/assets/index/img/68e2b832a85c2e8d9566dfd06dbf3e7.png" alt="">
+            <p>基本设置</p>
+            <i><span>开发中</span></i>
+        </div>
+        <div class="classify-item">
+            <img src="__PUBLIC__/assets/index/img/51654a7c99132923549ba5243cb6076.png" alt="">
+            <p>提现管理</p>
+            <i><span>开发中</span></i>
+        </div>
+        <div class="classify-item">
+            <img src="__PUBLIC__/assets/index/img/eb25dcfbd055ca25717b97819de7667.png" alt="">
+            <p>历史记录</p>
+            <i><span>开发中</span></i>
+        </div>
+        <div class="classify-item">
+            <img src="__PUBLIC__/assets/index/img/b4fcac609ed2561f3177469155d60ab.png" alt="">
+            <p>员工管理</p>
+            <i><span>开发中</span></i>
+        </div>
+        <div class="classify-item">
+            <img src="__PUBLIC__/assets/index/img/36fe9048093d3ea682dfe58216c5a59.png" alt="">
+            <p>信息</p>
+            <i><span>开发中</span></i>
+        </div>
+    </div>
+<!--    <div class="foot">-->
+<!--        <div class="footer">-->
+<!--            <a href="#"><img src="../index/img/tab_shouye.png" alt="">首页</a>-->
+<!--        </div>-->
+<!--        <div class="footer">-->
+<!--            <a href="#"><img src="../index/img/tab_gongzuotai.png" alt="">工作台</a>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="hh">
+        <div style="width:50%;text-align: center ;float:left"><a href="{url('Adjusting')}"><img style="width: 80px; height:80px;" src="__PUBLIC__/assets/index/img/tab_shouye.png" style="color: red"><div style="font-size:45px; color: red">首页</div></a></div>
+        <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 80px; height:80px;" src="__PUBLIC__/assets/index/img/tab_gongzuotai.png" style="color: red"><div style="font-size:45px; color: red">工作台</div></a></div>
+    </div>
+</div>
+
+
+</body>
+</html>

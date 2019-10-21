@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Forms</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!-- Bootstrap Core CSS -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+
+</head>
+<body>	
+	<div>计调端——订单状态</div>
+	<div>当前状态:第{$orderOne['current_stage']}阶段</div>
+	<div>
+	<div>{$stageLast['s1']}</div>{$stageLast['t1']|date="m-d H:i",###}
+	<div>{$stageLast['s2']}</div>
+	<div>{$stageLast['s3']}</div>
+	<div>{$stageLast['s4']}</div>
+	</div>
+	<div>订单号：{$orderOne['order_sn']}</div>
+	<div>用户名：{$orderOne['user_name']}</div>
+	<div>用户手机：{$orderOne['mobile_phone']}</div>
+	<div>用户地址：{$orderOne['region']}</div>
+</body>
+</html>

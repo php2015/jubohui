@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择项目经理</title>
+    <style type="text/css">
+        .yemian {
+            width: 100%;
+            height: 44px;
+            text-align: center
+        }
+        #box{
+            /*width: 380px;*/
+            /*margin: 30px auto;*/
+            /*font-family: 'Microsoft YaHei';*/
+            /*font-size: 14px;*/
+        }
+        input{
+            width: 88%;
+            border: 1px solid #e2e2e2;
+            height: 30px;
+            float: left;
+            /*background-image: url(images/search.jpg);*/
+            background-repeat: no-repeat;
+            background-size: 25px;
+            background-position:5px center;
+            padding:0 0 0 40px;
+        }
+        /*#search{*/
+        /*    width: 78px;*/
+        /*    !*height: 32px;*!*/
+        /*    float: right;*/
+        /*    background: black;*/
+        /*    color: white;*/
+        /*    text-align: center;*/
+        /*    line-height: 32px;*/
+        /*    cursor: pointer;*/
+        /*}*/
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+        .dianhua{
+            float: right;
+            position: relative;
+            left: -50px;
+            top: -37px;
+        }
+        .erji{
+            width:14px;
+            height:14px;
+            border:1px solid rgba(0,0,0,1);
+            opacity:0.2;
+            border-radius:50%;
+            float: right;
+            position: relative;
+            left: 20px;
+            top: -20px;
+            /*position: relative;left: 20px;top: -20px;*/
+        }
+        .kuku{
+            position: relative;
+            left: 1px;
+            top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="yemian" style="background: #ff0000;"><a href="{url('work')}"><img src="__PUBLIC__/img/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 19px; height: 22px; float: left"></a><p style="color: rgba(255, 255, 255, 1);">项目详情——选择质检</p></div>
+    <div id="box">
+        <input type="text" name="search" placeholder="请输入关键字">
+<!--        <div id="search">搜索</div>-->
+    </div>
+	{foreach $userList as $user}
+    <div>
+        <a href="__APP__?m=internal&a=Form&user_id={$user['user_id']}&order_id={$order_id}"><div><img width="40" height="40" class="kuku" src="__PUBLIC__/img/img/f96c22bab0a72a78bde7e439e348ea0.png">{$user['user_name']}</div>
+        <div class="dianhua"><img width="40" height="40" src="__PUBLIC__/img/img/14dab407a13d128e6ddf999f3f03b4d.png"></div>
+        <div class="erji"></div></a>
+    </div>
+    <hr style=" width: 100%; height:1px;border:none;border-top:1px solid #ff0000;  position: relative;left: 20px;top: -20px;" />
+	{/foreach}
+    <div class="hh">
+        <div style="width:50%;text-align: center ;float:left"><a href="{url('Adjusting')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/img/img/tab_shouye.png" style="color: red"><div>首页</div></a></div>
+        <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/img/img/tab_gongzuotai.png" style="color: red"><div>工作台</div></a></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,326 @@
+/* 工作台 */
+.body {
+    width: 100vw;
+    background: #eee;
+}
+
+.nav {
+    width: 100vw;
+    height: 11.7vw;
+    background: rgb(192, 44, 61);
+    line-height: 12.7vw;
+    text-align: center;
+    position: relative;
+
+}
+
+.title {
+    color: #fff;
+    font-size: 17px
+}
+
+.box {
+    margin: 0px auto;
+    width: 33%;
+}
+
+.box1 {
+    text-align: center;
+    width: 33%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+em {
+    font-style: normal;
+}
+
+.dropdown button {
+    width: 100%;
+    text-align: left;
+    background: #fff !important;
+    border-radius: 3px;
+    height: 100%;
+}
+
+.dropdown button i {
+    float: right;
+    margin-top: 8px;
+}
+
+.dropdown ul {
+    width: 100%;
+}
+
+.dropdown ul input {
+    height: 25px;
+    padding: 3px 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.dropdown-menu li:first-child {
+    position: relative;
+    padding: 5px 10px;
+}
+
+.dropdown-menu li:first-child i {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 10px;
+}
+
+.all {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 40px;
+    border-bottom: 1px solid #3f3f3f59;
+}
+
+/* 城市 */
+
+.dropdown {
+    padding-left: 15%;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    border: none;
+}
+
+/* 户型插件样式开始 */
+.zp_input {
+    height: 100%;
+    font-size: 15px;
+    line-height: 32px;
+    padding-left: 10px;
+    border-radius: 3px;
+    color: #000;
+    display: block;
+    width: 33%;
+}
+
+@charset "utf-8";
+body, h1, h2, h3, h4, h5, dl, dd, dt, p, ul, li, ol {
+    margin: 0;
+    padding: 0;
+}
+
+input, select, form, textarea, button {
+    border: none;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    appearance: none;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
+img {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    font: normal 10px/100% "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+li {
+    list-style-type: none;
+}
+
+html {
+    font-size: 625%;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #aaa;
+    font-size: 14px;
+}
+
+input, textarea {
+    color: #222;
+    font-size: .16rem;
+}
+
+.dropdwon {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 101;
+}
+
+.display_none {
+    display: none;
+}
+
+.dropdwon .down_cont {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    padding: 0 .16rem;
+    width: 100%;
+    z-index: 10;
+}
+
+.dropdwon .other_box {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.dropdwon .down_cont .title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ededed;
+}
+
+.dropdwon .down_cont .title > span {
+    height: .46rem;
+    line-height: .46rem;
+    font-size: .16rem;
+    color: #222;
+}
+
+.dropdwon .down_cont .title .cacel {
+    color: #666;
+}
+
+.dropdwon .down_cont .title .finsih {
+    color: #81B1FF;
+}
+
+.dropdwon .down_cont .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: .2rem;
+}
+
+.dropdwon .down_cont .display_none {
+    display: none;
+}
+
+.dropdwon .down_cont .content > span {
+    font-size: .16rem;
+    color: #222;
+    background: #FFFFFF;
+    border: 1px solid #EDEDED;
+    border-radius: .03rem;
+    height: 32px;
+    width: 30%;
+    text-align: center;
+    line-height: .34rem;
+    display: inline-block;
+    margin-top: .1rem;
+}
+
+.dropdwon .down_cont .content > span.active {
+    color: #fa0000;
+    /*border: .01rem solid #81B1FF;*/
+	background: #FFCCCB;
+}
+
+.tool_tip {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99999;
+    margin: auto;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    line-height: 1.5;
+    font-size: .15rem;
+    border-radius: .18rem;
+    text-align: center;
+    width: 80%;
+    max-width: 2.2rem;
+    border-radius: .05rem;
+    padding: 0 .1rem;
+    height: 1rem;
+    line-height: 1rem;
+    display: none;
+}
+
+/* 户型插件样式结束 */
+
+/* 户型楼盘 */
+.maer-top {
+    padding: 15px 20px 5px;
+}
+
+.maer-top p {
+    padding: 5px;
+    border-bottom: 1px solid #e20c0c3d;
+    display: block;
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 16px
+}
+
+.maer-top > p > span {
+    color: #e00e0e;
+    font-size: 16px
+
+}
+
+/* 户型图开始 */
+.maer-con {
+    padding: 20px;
+}
+
+.maer-con > p > span {
+    font-size: 22px
+}
+
+.maer-img > img {
+    width: 100%;
+    height: 100%;
+}
+
+.maer-a {
+    text-align: center;
+}
+
+/* 户型图结束 */
+/* 选择设计师 */
+.maer-a > a {
+    font-size: 20px;
+    color: #fff;
+    background: rgb(192, 44, 61);
+    padding: 3% 15%;
+    border-radius: 30px;
+}
+
+.hh {
+    margin: 0 auto;
+    position: fixed;
+    left: 0;
+    /*top: 120px;*/
+    right: 0;
+    bottom: 0;
+    /*width:750px;*/
+    height: 63px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.05);
+}

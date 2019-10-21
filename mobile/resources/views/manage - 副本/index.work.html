@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=yes"/>
+    <title>工作台</title>
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .yemian{
+            width: 100%;
+            height: 44px;
+            text-align:center
+        }
+        .yemian img{
+            margin: 11px 0px 11px 30px;
+        }
+        .yemian p{
+            font-size: 18px;
+            line-height: 44px;
+            margin: 0px;
+        }
+
+        #search{
+            width:100%;
+            height:38px;
+            background:rgba(238,238,238,1);
+            box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+        input{
+            width: 80%;
+            border: 1px solid #e2e2e2;
+            height: 30px;
+            margin: 0 auto;
+            /* background-image: url(images/search.jpg); */
+
+
+            /* padding: 0 0 0 40px; */
+            text-align: center;
+            display: inherit;
+            margin-top: 4px;
+            /*background:#EEEEEE url("../index/img/search.png") no-repeat;*/
+            background-size: 16px 16px;
+            background-position: 40% center;
+        }
+        /*#search{*/
+        /*    width: 78px;*/
+        /*    !*height: 32px;*!*/
+        /*    float: right;*/
+        /*    background: black;*/
+        /*    color: white;*/
+        /*    text-align: center;*/
+        /*    line-height: 32px;*/
+        /*    cursor: pointer;*/
+        /*}*/
+        .manager{
+
+        }
+        li{
+            list-style: none;
+        }
+        .manager li{
+            height: 56px;
+            margin-right: 40px;
+            border-bottom:1px solid rgba(212,23,45,1);
+
+        }
+        .manager img{
+            width: 40px;
+            height: 40px;
+        }
+        .manager .head{
+            margin: 5px;
+        }
+        /*.manager .phone{*/
+        /*    margin-left: 80px;*/
+        /*}*/
+        .manager span{
+            height: 56px;
+            font-size:14px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(0,0,0,1);
+            line-height:36px;
+            display: inline-block;
+        }
+        /*.manager div{*/
+        /*    width:14px;*/
+        /*    height:14px;*/
+        /*    !*border:1px solid rgba(0,0,0,1);*!*/
+        /*    !*border-radius:50%;*!*/
+        /*    display: inline-block;*/
+        /*    float: right;*/
+        /*    margin: 21px 10px 0px 0px;*/
+        /*}*/
+            /*display: none;*/
+        .manager .choose{
+            width: 16px;
+            height: 16px;
+            background-image: url(../index/img/a7e9deff88fe5551e27a4fc9720a07d.png);
+        }
+        
+        .dianhua{
+            float: right;
+            position: relative;
+            left: -50px;
+            top: -37px;
+        }
+        .erji{
+            width:14px;
+            height:14px;
+            border:1px solid rgba(0,0,0,1);
+            opacity:0.2;
+            border-radius:50%;
+            float: right;
+            position: relative;
+            left: 20px;
+            top: -20px;
+            /*position: relative;left: 20px;top: -20px;*/
+        }
+        .kuku{
+            position: relative;
+            left: 1px;
+            top: 15px;
+        }
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+            background:rgba(255,255,255,1);
+            box-shadow:0px 0px 5px 1px rgba(0, 0, 0, 0.05);
+        }
+        .hh a{
+            text-decoration: none;
+            color: rgba(206, 16, 16, 1);
+        }
+        .circleIcon{
+            display: inline-block;
+            float: right;
+            width:14px;
+            height:14px;
+            border:1px solid rgba(0,0,0,1);
+            opacity:0.2;
+            border-radius:50%;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="yemian" style="background: #ff0000;">
+        <a href="{url('index')}"><img src="__PUBLIC__/assets/index/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 19px; height: 22px; float: left;"></a>
+        <p style="color: rgba(255, 255, 255, 1);">工作台</p>
+    </div>
+    <div id="">
+        <form action="{url('Work')}" enctype="multipart/form-data" method="post">
+			城市：
+			<select name="city_id">
+				<option value="">请选择</option>
+				{foreach $cityList as $city}			  
+				<option value="{$city[cityId]}" {if $city[cityId] eq $cityId}selected="selected"{/if}>{$city[cityName]}</option>
+				{/foreach}
+			</select>
+            <input type="text" name="loupan_name" placeholder="请输入楼盘关键词" value="{$loupan_name}"/>
+			楼盘：
+			<select name="loupan_id">
+				<option value="">请选择</option>
+				{foreach $loupanList as $loupan}
+				<option value ="{$loupan[loupan_id]}" {if $loupan[loupan_id] eq $loupan_id}selected="selected"{/if}>{$loupan[loupan_name]}</option>
+				{/foreach}
+			</select>
+			户型：
+			<select name="huxing_id">
+				<option value="">请选择</option>
+				{foreach $huxingList as $huxing}
+				<option value ="{$huxing[huxingId]}">{$huxing[huxingName]}</option>
+				{/foreach}
+			</select>
+            <!-- <input type="hidden" name="user_id" value="{$user_id}" /> -->
+			<input style="float: right; width: 10%; transform: translateY(-36px); background:#6e6e6e; border:none; color:white;" type="submit" value="提交"/>
+			<!-- <input type="submit" value="搜索" /> -->
+        </form>
+    </div>
+	<div>
+	</div>
+    <ul class="manager">
+		
+    </ul>
+    <div class="hh">
+        <div style="width:50%;text-align: center ;float:left"><a href="{url('index')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/index/img/tab_shouye.png" style="color: red"><div>首页</div></a></div>
+        <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/index/img/tab_gongzuotai.png" style="color: red"><div>工作台</div></a></div>
+    </div>
+</div>
+	<script type="text/javascript">
+	<!-- 选择城市 -->
+	$('select[name="city_id"]').change(function(){
+		<!-- var city_id = $(this).val(); -->
+		<!-- console.log(city_id); -->
+		<!-- 楼盘清空 -->
+		var html = '';
+		html += '<select name="loupan_id">';
+		html += '<option value="">请选择</option>';					
+		html += '</select>';
+		$('select[name="loupan_id"]').html(html);
+		<!-- 户型清空 -->
+		var html = '';
+		html += '<select name="huxing_id">';
+		html += '<option value="">请选择</option>';					
+		html += '</select>';
+		$('select[name="huxing_id"]').html(html);
+		<!-- 清空楼盘搜索 -->
+		$('input[name="loupan_name"]').attr("value","");
+		<!-- 清空户型介绍 -->
+		$(".manager").empty();
+		
+	})
+	<!-- 选择楼盘 -->
+	$('select[name="loupan_id"]').change(function(){
+		<!-- var this_ = $(this); -->
+		var loupan_id = $(this).val();
+		<!-- console.log(loupan_id); -->
+		$.ajax({
+		   type: "post",
+		   url: "{url('FindLoupan')}",
+		   data: {"loupan_id":loupan_id},
+		   dataType: "json",
+		   success: function(results){	
+				var code = results.code;		
+				var msg = results.msg;
+				var data = results.data;
+				<!-- console.log(data); -->
+				<!-- 报错 -->
+				if(code == 0){
+					alert(msg);
+					var html = '';
+					html += '<select name="huxing_id">';
+					html += '<option value="">请选择</option>';					
+					html += '</select>';
+					$('select[name="huxing_id"]').html(html);
+					<!-- 清空户型介绍 -->
+					$(".manager").empty();
+				}
+				<!-- 取值成功 -->
+				if(code == 1){
+					var html = '';
+					html += '<select name="huxing_id">';
+					html += '<option value="">请选择</option>';
+					for(var i=0;i<data.length;i++){
+						html += '<option value ="'+data[i].huxingId+'">'+data[i].huxingName+'</option>';
+					}					
+					html += '</select>';
+					$('select[name="huxing_id"]').html(html);
+				}
+				<!-- 未选择楼盘时取消户型显示 -->
+				if(code == 2){
+					var html = '';
+					html += '<select name="huxing_id">';
+					html += '<option value="">请选择</option>';					
+					html += '</select>';
+					$('select[name="huxing_id"]').html(html);
+					<!-- 清空户型介绍 -->
+					$(".manager").empty();
+				}
+		   }
+		});
+	})
+	<!-- 选择户型 -->
+	$('select[name="huxing_id"]').change(function(){
+		var huxing_id = $(this).val();
+		$.ajax({
+		   type: "post",
+		   url: "{url('FindHuxing')}",
+		   data: {"huxing_id":huxing_id},
+		   dataType: "json",
+		   success: function(results){	
+				var code = results.code;		
+				var msg = results.msg;
+				var data = results.data;
+				<!-- console.log(data); -->
+				<!-- 报错 -->
+				if(code == 0){
+					<!-- alert(msg); -->
+					$(".manager").empty();
+				}
+				<!-- 取值成功 -->
+				if(code == 1){
+					var html = '';
+					html += '<form action="__APP__?m=Manage&a=Choose" enctype="multipart/form-data" method="post">';
+					html += '<li>楼盘名称：'+data.loupan_name+'</li>';
+					html += '<li>户型：'+data.huxingName+'</li>';
+					html += '<li>户型介绍：'+data.huxingMsg+'</li>';
+					html += '<li>户型图:<img src="{:_ASHIN_}/'+data.huxingPic+'" width="200"/></li>';
+					html += '<li>期望设计总价：<input type="text" name="price" value=""/></li>';
+					html += '<input type="hidden" name="huxingId" value="'+data.huxingId+'"/>';
+					html += '<input type="hidden" name="huxing_name" value="'+data.huxingName+'"/>';
+					html += '<input type="hidden" name="loupan_id" value="'+data.loupanId+'"/>';
+					html += '<input type="hidden" name="loupan_name" value="'+data.loupan_name+'"/>';
+					html += '<input type="hidden" name="loupan_img" value="'+data.loupan_img+'"/>';
+					html += '<input type="hidden" name="loupan_introduce" value="'+data.loupan_introduce+'"/>';
+					html += '<input type="hidden" name="huxing_class" value="'+data.huxing_class+'"/>';
+					html += '<input type="hidden" name="huxing_classname" value="'+data.huxing_classname+'"/>';
+					html += '<input type="hidden" name="introduce" value="'+data.huxingMsg+'"/>';
+					html += '<input type="hidden" name="huxing_img" value="'+data.huxingPic+'"/>';
+					html += '<input type="submit" value="选择设计师"/>';
+					html += '</form>';
+					
+					$(".manager").html(html);
+				}				
+		   }
+		});
+	})
+	</script>
+</body>
+</html>

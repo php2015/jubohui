@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>项目入驻</title>
+    <style type="text/css">
+    .yemian{
+    width: 100%;
+    height: 44px;
+    text-align:center
+    }
+        .shanzhi{
+            height:44px;
+            background:rgba(238,238,238,1);
+            box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+        }
+        .dainzhi{
+            width:25%;
+            height:23px;
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 7px 1px rgba(0, 0, 0, 0.29);
+        }
+        .jianpan{
+            width:100%;
+            height:183px;
+            background:rgba(25,18,34,1);
+            opacity:0.1;
+            border-radius:24px;
+        }
+        /*.yingxiang{*/
+
+        /*    height:12px;*/
+        /*    font-size:12px;*/
+        /*    font-family:Source Han Sans CN;*/
+        /*    font-weight:250;*/
+        /*    color:rgba(25,18,34,1);*/
+        /*    line-height:36px;*/
+        /*    opacity:0.5;*/
+        /*}*/
+        .erji{
+            /*width:303px;*/
+            height:40px;
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 19px 2px rgba(213,42,42,0.4);
+            border-radius:20px;
+            border:1px solid red;
+            margin:0 auto;
+            text-align:center;
+        }
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+        .beizi{
+            /*width:147px;*/
+            /*height:35px;*/
+            font-size:25px;
+            font-family:Source Han Sans CN;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            line-height:36px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="yemian" style="background: #ff0000;"><a href="javascript:;" onClick="javascript :history.back(-1);"><img src="__PUBLIC__/img/img/4ea4148429f7b751cda87848e60ec6c.png" style=" width: 19px; height: 22px; float: left"></a><p style="color: rgba(255, 255, 255, 1);">项目入驻详情</p></div>
+    <form action="__APP__?m=internal&a=Form" enctype="multipart/form-data" method="post">
+		<div class="shanzhi"><span style="color: red">订单号：{$orderOne['order_sn']}</span></div>
+		<div class="dainzhi">用户名: {$orderOne['user_name']}</div><br>
+		<hr style="height:1px;border:none;border-top:1px solid #ff0000;" />
+		<div class="dainzhi">用户手机: {$orderOne['mobile_phone']}</div><br>
+		<hr style="height:1px;border:none;border-top:1px solid #ff0000;" />
+		<div class="dainzhi">用户地址: {$orderOne['region']}</div><br>
+		<hr style="height:1px;border:none;border-top:1px solid #ff0000;" />
+		<div class="jianpan"><span class="yingxiang">详细备注：</span><textarea name="remarks">备注</textarea></div>
+		<!-- 质检ID -->
+		<input type="hidden" name="quality_id" value="{$user_id}"/>
+		<input type="hidden" name="order_id" value="{$orderOne['order_id']}"/>
+		<div class="erji beizi"><input type="submit" value="安排入驻"/></div>
+	</form>
+    <div class="hh">
+        <div style="width:50%;text-align: center ;float:left"><a href="{url('Adjusting')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/img/img/tab_shouye.png" style="color: red"><div>首页</div></a></div>
+        <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/img/img/tab_gongzuotai.png" style="color: red"><div>工作台</div></a></div>
+    </div>
+</div>
+</body>
+</html>

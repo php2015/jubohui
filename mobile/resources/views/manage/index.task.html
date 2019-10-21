@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>工作台计调端</title>
+	<script src="__PUBLIC__/assets/index/css/js/jquery-1.8.2.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .claer {
+            clear: both;
+        }
+
+        .yemian {
+            width: 100%;
+            height: 44px;
+            text-align: center
+        }
+
+        .text {
+            text-align: center;
+            height: 44px;
+            background: rgba(238, 238, 238, 1);
+            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+
+
+        }
+
+        .aa {
+            text-align: center;
+            height: 44px;
+            background: rgba(238, 238, 238, 1);
+            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+        }
+
+        .shubiao {
+            width: 122px;
+            /*height:147px;*/
+            font-size: 12px;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 1);
+            /*line-height:36px;*/
+            float: left;
+        }
+
+        .diannao {
+            width: 105px;
+            height: 27px;
+            background: rgba(206, 16, 16, 1);
+            box-shadow: 0px 0px 12px 1px rgba(243, 96, 93, 0.29);
+            border-radius: 14px;
+            float: right;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .hh {
+            margin: 0 auto;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .imgBox {
+            float: right;
+        }
+
+        .products .mainCont {
+            display: none;
+            width: 100%;
+            overflow: auto;
+            /*text-align: center;*/
+        }
+
+        .products .mainCont.selected {
+            display: block;
+        }
+
+        .active a {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        div.solid {
+            border-style: solid;
+            background:rgba(255,255,255,1);
+            box-shadow:0px 0px 8px 1px rgba(69,19,19,0.16);
+            border-radius:15px;
+            border:3px solid #ffffff;
+        }
+        .downloadImg{
+            display: inline-block;
+            width:17%;
+            height:19px;
+            line-height: 19px;
+            text-align: center;
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 20px 1px rgba(213,27,27,0.2);
+            border-radius:30px;
+            color: #fff;
+        }
+        .beizi{
+            /*margin-top: 28px;*/
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div style="background:#F5F4F4; ">
+    <div class="yemian" style="background: #ff0000;text-align: center;color: #fff;padding-top: 10px">
+        <a href="{url('manage')}"><img src="__PUBLIC__/assets/manage/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 15px; height: 15px;margin-left: 19px; float: left;margin-top: 6px;"></a>
+        <b style="margin-left: -19px;    font-size: 18px;">任务管理</b>
+    </div>
+    <div class="apply-record">
+        <div style="display: flex;    background: #fff; height: 44px;
+    line-height: 44px;background: #eee" class="tab">
+            <div style="width: 33%; flex-direction:column;text-align: center" class="active"><a style="color: red;    border-right: 1px solid #cbcbdc;    padding-right: 34%;margin-left: 19%;">未接单</a>  </div>
+            <div style="width: 35%; flex-direction:column;text-align: center" class="active"><a  style="color: red;    border-right: 1px solid #cbcbdc;    padding-right: 29%;margin-left: 8%;">进行中<div class="downloadImg" style="font-size:12px;">{$ingtaskCount}</div></a>
+            </div>
+            <!--            <div style="width: 33%; flex-direction:column;text-align: center"><a style="color: red;">进行中</a></div>-->
+            <div style="width: 33%; flex-direction:column;text-align: center"><a style="color: red;">已完成</a></div>
+        </div>
+        <div class="content products ">
+            <div class="mainCont selected">
+			{foreach $notaskList as $notask}
+                <div style="display: flex;   padding:1px; margin-top: 16px;" class="solid">
+                    <div style="flex-direction:column;width: 100%; padding:10px; border-bottom: 0px solid #f00;">
+                        <div style=""><b style="font-size:14px ">{$notask['design_name']} &nbsp 派单时间：{$notask['add_time']|date="Y-m-d",###}</b></div>
+                        <div><b style="font-size:14px ">楼盘名称：{$notask['loupan_name']} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span
+                                style="color: #fc0000">{$notask['huxing_name']}</span></b></div>
+                        <div>
+                            <b style="font-size:14px ">期望设计总价：{$notask['total_price']} {$notask['add_time']|date="Y-m-d",###}</b>
+                        </div>
+                    </div>
+                    <div style="flex-direction:column;width: 0%; padding:10px; border-bottom: 0px solid #f00;">
+                        <div><span
+                                style=" width: 27vw; height: 4.5vh; background: rgba(219,31,27,1); border-radius: 8vw; display: block; /* border: none; */ color: #ffff; text-align: center; margin: 37px 0px -74px -101px; line-height: 28px;">未接单</span>
+                        </div>
+                        <div style="float: right;"><a href="__APP__?m=Manage&a=Notask&id={$notask['task_id']}"><img class="beizi" style="width: 16px;" src="__PUBLIC__/assets/manage/img/arrow-right.png"></a></div>
+
+                    </div>
+                </div>
+			{/foreach}
+            </div>
+            <div class="mainCont">
+			{foreach $ingtaskList as $ingtask}
+                <div style="display: flex;   padding:1px; margin-top: 12px;" class="solid">
+                    <div style="flex-direction:column;width: 100%; padding:10px; border-bottom: 0px solid #f00;">
+                        <div style=""><b style="font-size:14px ">{$ingtask['design_name']} &nbsp 接单时间：{$ingtask['design_time']|date="Y-m-d",###}</b></div>
+                        <div><b style="font-size:14px ">楼盘名称：{$ingtask['loupan_name']} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span
+                                style="color: #fc0000">{$ingtask['huxing_name']}</span></b></div>
+                        <div><b style="font-size:14px ">期望设计总价：{$ingtask['total_price']}</b></div>
+                    </div>
+                    <div style="flex-direction:column;width: 0%; padding:10px; border-bottom: 0px solid #f00;">
+                        <div><span
+                                style=" width: 27vw; height: 4.5vh; background: rgba(219,31,27,1); border-radius: 8vw; display: block; /* border: none; */ color: #ffff; text-align: center; margin: 37px 0px -74px -101px;line-height: 28px;">进行中</span>
+                        </div>
+                        <div style="float: right;"><a href="__APP__?m=Manage&a=Ingtask&id={$ingtask['task_id']}"><img class="beizi" style="width: 16px;" src="__PUBLIC__/assets/manage/img/arrow-right.png"></a></div>
+
+                    </div>
+                </div>
+			{/foreach}
+            </div>
+            <div class="mainCont">
+			{foreach $finishtaskList as $finishtask}
+                <div style="display: flex;   padding:1px; margin-top: 12px;" class="solid ">
+                    <div style="flex-direction:column;width: 100%; padding:10px; border-bottom: 0px solid #f00;">
+                        <div style=""><b style="font-size:14px ">{$finishtask['design_name']} &nbsp 完成时间：{$finishtask['finish_time']|date="Y-m-d",###}</b></div>
+                        <div><b style="font-size:14px ">楼盘名称：{$finishtask['loupan_name']} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span
+                                style="color: #fc0000">{$finishtask['huxing_name']}</span></b></div>
+                        <div><b style="font-size:14px ">期望设计总价：{$finishtask['total_price']}</b></div>
+                    </div>
+                    <div style="flex-direction:column;width: 0%; padding:10px; border-bottom: 0px solid #f00;">
+                        <div><span
+                                style=" width: 27vw; height: 4.5vh; background: rgba(219,31,27,1); border-radius: 8vw; display: block; /* border: none; */ color: #ffff; text-align: center;  margin: 37px 0px -74px -101px;line-height: 28px;">已完成</span>
+                        </div>
+                        <div style="float: right;"><a href="__APP__?m=Manage&a=Finishtask&id={$finishtask['task_id']}"><img class="beizi" style="width: 16px;" src="__PUBLIC__/assets/manage/img/arrow-right.png"></a></div>
+
+                    </div>
+                </div>
+			{/foreach}
+            </div>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="hh">
+        <div style="width:50%;text-align: center ;float:left"><a href="{url('Adjusting')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/manage/img/tab_shouye.png" style="color: red">
+            <div style="color: red">首页</div>
+        </a></div>
+        <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/manage/img/tab_gongzuotai.png" style="color: red">
+            <div style="color: red">工作台</div>
+        </a></div>
+    </div>
+    <p style="background:#F5F4F4; color: #F5F4F4">212</p>
+</div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $(" .tab > div").click(function () {
+            var $index = $(this).index();
+            console.log($index)
+            $(this).addClass("active").siblings().removeClass("active");
+            $(".products .mainCont").eq($(this).index()).show().siblings().hide();
+        })
+    })
+</script>
+</html>

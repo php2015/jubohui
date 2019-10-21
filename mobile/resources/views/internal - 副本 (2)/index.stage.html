@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单详情</title>
+    <style type="text/css">
+        .yemian{
+            width: 100%;
+            height: 44px;
+            text-align:center
+        }
+        .shanzhi{
+            height:44px;
+            background:rgba(238,238,238,1);
+            box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+        }
+        .jiazi{
+            width:127px;
+            height:17px;
+            font-size:18px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(0,0,0,1);
+        }
+        .yantou{
+            width:18px;
+            height:18px;
+            background:rgba(206,16,16,1);
+            border-radius:50%;
+        }
+        .wazi{
+            width:105px;
+            height:14px;
+            font-size:15px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(0,0,0,1);
+            line-height:22px;
+        }
+        .sahnzhi{
+            width:18px;
+            height:18px;
+            background:rgba(85,85,85,1);
+            border-radius:50%;
+        }
+        .dainzhi {
+            width: 25%;
+            height: 23px;
+            background: rgba(206, 16, 16, 1);
+            box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.29);
+        }
+        li{
+            list-style: none;
+        }
+        .timeLine{}
+        .timeLine li{
+            margin-bottom: 45px;
+        }
+        .timeLine li i{
+            display: inline-block;
+            width:18px;
+            height:18px;
+            background:rgba(206,16,16,1);
+            border-radius:50%;
+            position: relative;
+        }
+        .timeLine li i:after{
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 50px;
+            background: red;
+            position: absolute;
+            left: 9px;
+            top: 18px;
+
+        }
+        .fake{
+            width:62px;
+            height:8px;
+            font-size:11px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(219,31,27,1);
+            line-height:22px;
+        }
+        li{
+            list-style: none;
+        }
+        .timeLin{}
+        .timeLin li{
+            margin-bottom: 45px;
+        }
+        .timeLin li i{
+            display: inline-block;
+            width:18px;
+            height:18px;
+            background:rgba(85,85,85,1);
+            border-radius:50%;
+            position: relative;
+        }
+        .timeLin li i:after{
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 50px;
+            background:rgba(85,85,85,1);
+            position: absolute;
+            left: 9px;
+            top: 18px;
+
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="yemian" style="background: #ff0000;"><a href="{url('order')}"><img src="__PUBLIC__/img/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 19px; height: 22px; float: left;"></a><p style="color: rgba(255, 255, 255, 1);">项目详情</p></div>
+    <div class="shanzhi"><span style="color: red"><span class="jiazi">当前状态：</span>第{$orderOne['current_stage']}阶段</span></div>
+    <ul class="{if $stageLast['c1'] == 1}timeLine{else}timeLin{/if}">
+        <li><i></i><span>{$stageLast['s1']}</span><span class="fake" >{if $stageLast['t1']}{$stageLast['t1']|date="m-d H:i",###}{/if}</span></li>
+    </ul>
+    <ul class="{if $stageLast['c2'] == 1}timeLine{else}timeLin{/if}">
+        <li><i></i><span>{$stageLast['s2']}</span><span class="fake" >{if $stageLast['t2']}{$stageLast['t2']|date="m-d H:i",###}{/if}</span></li>
+	</ul>
+	<ul class="{if $stageLast['c3'] == 1}timeLine{else}timeLin{/if}">
+        <li><i></i><span>{$stageLast['s3']}</span><span class="fake" >{if $stageLast['t3']}{$stageLast['t3']|date="m-d H:i",###}{/if}</span></li>
+	</ul>
+	<ul class="{if $stageLast['c4'] == 1}timeLine{else}timeLin{/if}">
+        <li><i></i><span>{$stageLast['s4']}</span><span class="fake" >{if $stageLast['t4']}{$stageLast['t4']|date="m-d H:i",###}{/if}</span></li>
+	</ul>
+    
+    <div class="dainzhi">用户名: {$orderOne['user_name']}</div><br>
+    <hr style="height:1px;border:none;border-top:1px solid #ff0000;" />
+    <div class="dainzhi">用户手机: {$orderOne['mobile_phone']}</div><br>
+    <hr style="height:1px;border:none;border-top:1px solid #ff0000;" />
+    <div class="dainzhi">用户地址: {$orderOne['region']}</div><br>
+    <hr style="height:1px;border:none;border-top:1px solid #ff0000;" />
+</div>
+</body>
+</html>

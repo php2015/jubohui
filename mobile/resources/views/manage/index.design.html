@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>设计师详情</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            /*padding: 0;*/
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .claer{
+            clear: both;
+        }
+        .yemian{
+            width: 100%;
+            height: 44px;
+            text-align:center
+        }
+        .text{
+            text-align:center; height: 44px;background:rgba(238,238,238,1);box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+
+
+
+        }
+        .aa {
+            text-align: center;
+            height: 44px;
+            background:rgba(238,238,238,1);
+            box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+        }
+        .shubiao{
+            width:122px;
+            /*height:147px;*/
+            font-size:12px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(0,0,0,1);
+            /*line-height:36px;*/
+            float:left;
+        }
+        .diannao{
+            width:105px;
+            height:27px;
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 12px 1px rgba(243,96,93,0.29);
+            border-radius:14px;
+            float:right;
+
+        }
+        a{
+            text-decoration:none;
+        }
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+        .imgBox{
+            float: right;
+        }
+        .products .mainCont {
+            display: none;
+            width:100%;
+            overflow: auto;
+            /*text-align: center;*/
+        }
+        .products .mainCont.selected {
+            display: block;
+        }
+        .active a{
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .user-information li{
+            height: 40px;
+            border-bottom: 1px solid rgba(212, 23, 45, 1);
+            margin-right: 40px;
+            /*margin: 10px 0 3px 0px;*/
+        }
+        .user-information em{
+            font-size:14px;
+            font-family:Source Han Sans CN;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            line-height:24px;
+            font-style: normal;
+            width: 65px;
+            height: 24px;
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 7px 1px rgba(0, 0, 0, 0.29);
+            display: inline-block;
+            padding-left: 5px;
+            margin-right: 10px;
+        }
+        .user-information p{
+            color: rgba(0, 0, 0, 1);
+            display: inline-block;
+            font-size:14px;
+            font-family:Source Han Sans CN;
+            font-weight:500;
+            line-height:24px;
+            margin-top: 3%;
+        }
+        li{
+            list-style: none;
+        }
+        .bug{
+            font-size:12px;
+            font-family:Source Han Sans CN;
+            font-weight:300;
+            color:rgba(0,0,0,1);
+            line-height:18px;
+            padding-left: 36px;
+            margin-right: 10px;
+            line-height:36px;
+        }
+        .loue{
+            font-size:12px;
+            font-family:Source Han Sans CN;
+            font-weight:300;
+            color:rgba(0,0,0,1);
+            line-height:36px;
+            padding-left: 36px;
+            margin-right: 10px;
+        }
+        .dingdan{
+            /*margin: 0 auto;*/
+            /*width: 840px;*/
+            /*height: 180px;*/
+            /*background-color: #fff;*/
+            /*box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.21);*/
+            /*border-radius: 16px;*/
+            position: relative;
+            /*top: -700px;*/
+        }
+        .dingdan-1 {
+            /*margin: 0px 38px;*/
+            float: left;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 16%;
+        }
+        .month {
+            margin: 25px 2px 22px 46px;
+            float: left;
+        }
+        .gg{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+        .ku{
+            border-radius: 108px 108px 108px 108px;
+            background: #D00000;
+            color: #EEEEEE;
+        }
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+
+
+        }
+        .hh a{
+            text-decoration: none;
+            color: rgba(206, 16, 16, 1);
+        }
+        .circleIcon{
+            display: inline-block;
+            float: right;
+            width:14px;
+            height:14px;
+            border:1px solid rgba(0,0,0,1);
+            opacity:0.2;
+            border-radius:50%;
+            margin-top: 15px;
+        }
+        .bug2{
+            margin: 0 auto;
+            border-radius: 108px 108px 108px 108px;
+            background: #DB1F1B;
+            color: #EEEEEE;
+            width: 80%;
+            height: 45px;
+            display: block;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="yemian" style="background: #ff0000;text-align: center;color: #fff;padding-top: 10px">
+        <a href="__APP__?m=Manage&a=Choose&huxingId={$huxingId}&huxing_name={$huxing_name}&loupan_id={$loupan_id}&loupan_name={$loupan_name}&loupan_img={$loupan_img}&loupan_introduce={$loupan_introduce}&huxing_class={$huxing_class}&huxing_classname={$huxing_classname}&introduce={$introduce}&huxing_img={$huxing_img}&price={$price}&design_name={$design_name}&design_data={$design_data}"><img src="__PUBLIC__/assets/manage/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 15px; height: 15px;margin-left: 19px; float: left;margin-top: 6px;"></a>
+        <b style="margin-left: -19px;    font-size: 18px;">设计师详情</b>
+    </div>
+    <ul class="user-information">
+        <li><p><em>用户名:</em>{$design['design_name']}</p></li>
+        <li><p><em>联系电话:</em>{$design['phone']}</p></li>
+        <li><p><em>身份证:</em>{$design['id_card']}</p></li>
+    </ul>
+    <div>
+        <li class="bug">专业资质证书：</li>
+        <div><img style="width: 72px; height: 72px; padding-left: 36px; margin-right: 10px;" src="{$design['certificate']}"></div>
+    </div>
+    <div>
+        <li class="loue">身份证正反面：</li>
+        <div><img style="width: 72px; height: 72px; padding-left: 36px; margin-right: 10px;" src="{$design['id_a']}"><img style="width: 72px; height: 72px; padding-left: 20px; margin-right: 10px;" src="{$design['id_b']}"></div>
+    </div>
+    <div>
+        <hr style="    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 27%;">
+        <div class="dingdan">
+                    <div class="dingdan-1">
+                        <div class="month">
+                            <span>{$finishCount}</span>
+                            <p style="color: #D00000">已完成设计</p>
+                        </div>
+                        <div class="month">
+                            <span>{$unCount}</span>
+                            <p style="color: #D00000">未接单</p>
+                        </div>
+                        <div class="month">
+                            <span>{$ingCount}</span>
+                            <p style="color: #D00000">设计中</p>
+                        </div>
+                    </div>
+            <div class="hh">
+                <div>
+				<form action="__APP__?m=Manage&a=Choose" enctype="multipart/form-data" method="post">
+					<input type="hidden" name="huxingId" value="{$huxingId}"/>
+					<input type="hidden" name="huxing_name" value="{$huxing_name}"/>
+					<input type="hidden" name="loupan_id" value="{$loupan_id}"/>
+					<input type="hidden" name="loupan_name" value="{$loupan_name}"/>
+					<input type="hidden" name="loupan_img" value="{$loupan_img}"/>
+					<input type="hidden" name="loupan_introduce" value="{$loupan_introduce}"/>
+					<input type="hidden" name="huxing_class" value="{$huxing_class}"/>
+					<input type="hidden" name="huxing_classname" value="{$huxing_classname}"/>
+					<input type="hidden" name="introduce" value="{$introduce}"/>
+					<input type="hidden" name="huxing_img" value="{$huxing_img}"/>
+					<input type="hidden" name="user_name" value="{$design_name}"/>
+					<input type="hidden" name="price" value="{$price}"/>
+					<input type="hidden" name="user_id" value="{$design['user_id']}"/>
+					<input type="hidden" name="design_data" value="{$design_data}"/>
+                    <!--        <button class="bug"><img style="width: 50%" src="img/buttonnn.png"></button>-->
+                    <button class="bug2">选择设计师</button>
+                </form>
+				</div>
+
+                <div style="width: 100%;background: #fff;box-shadow:0px 0px 5px 1px rgba(0, 0, 0, 0.05);">
+                    <div style="width:50%;text-align: center ;float:left"><a href="{url('index')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/manage/img/tab_shouye.png" style="color: red"><div>首页</div></a></div>
+                    <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/manage/img/tab_gongzuotai.png" style="color: red"><div>工作台</div></a></div>
+                </div>
+            </div>
+</div>
+</body>
+</html>

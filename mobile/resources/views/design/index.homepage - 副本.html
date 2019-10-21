@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>欢迎您,设计师</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		a{
+			text-decoration:none;
+		}
+		.title{
+			width:100vw;
+			font-size:1.7vw;
+			font-weight:bold;
+			color:rgba(0,0,0,1);
+			text-align: center;
+			margin-top: 1vw;
+			/*background:url(__PUBLIC__/assets/design/img/loupan.png) no-repeat center 1.5vw;*/
+		}
+		.nav{
+			width:100vw;
+			margin-top: 1vw;
+		}
+		.nav-list{
+			display: inline-block;
+			margin-left: 13vw;
+		}
+		.nav-list-one{
+			margin-left: 7vw;
+		}
+		.nav-list img{
+			width: 2.5vw;
+			margin-bottom: -0.2vw;
+		}
+		.nav-list span{
+			font-size:2.3vw;
+			font-weight:bold;
+			color:rgba(206,16,16,1);
+		}
+		.product{
+			margin-top: 2vw;
+		}
+		.product-content{
+			display: inline-block;
+			width: 30vw;
+			height: 60vw;
+			border: 1px solid #eee;
+			margin-left:2vw;
+		}
+		.product-content img{
+			width: 30vw;
+		}
+		.product-content span{
+			display: inline-block;
+		}
+		.product-font-one{
+			font-size: 2vw;
+			font-weight: bold;
+			color: rgba(206,16,16,1);
+			margin-left: 1vw;
+			margin-top: 1vw;
+		}
+		.product-font-two{
+			font-size: 1vw;
+			font-weight: bold;
+			color: #AAA;
+			float: right;
+			margin-right: 1vw;
+			margin-top: 1vw;
+		}
+		.product-font-three{
+			font-size: 1.5vw;
+			font-weight: bold;
+			color: #AAA;
+			margin-left: 1vw;
+			margin-top: 1vw;
+			width: 26vw;
+		}
+		.footer{
+			margin-top: 0.5vw;
+			width: 100vw;
+			height: 3.5vw;
+			background: url(__PUBLIC__/assets/design/img/bg02.png);
+			line-height: 3.5vw;
+		}
+		.footer span{
+			font-size:1.5vw;
+			font-weight:bold;
+			color:rgba(255,255,255,1);
+			margin-left: 12vw;
+		}
+		.products.mainCont{
+			display: none;
+		}
+		.mainCont.selected {
+			display: block;
+		}
+		.active a {
+			font-size: 16px;
+			font-weight: 600;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="title">选择楼盘</div>
+		<div class="nav">
+
+				<div class="nav-list nav-list-one active">
+					<div><img src="__PUBLIC__/assets/design/img/quanbu.png" alt="">
+					<span>全部</span></div>
+				</div>
+				<div class="nav-list active">
+					<div><img src="__PUBLIC__/assets/design/img/weijiedan.png" alt="">
+					<span>未接单</span></div>
+				</div>
+				<div class="nav-list active">
+					<div><img src="__PUBLIC__/assets/design/img/shejizong.png" alt="">
+					<span>设计中</span></div>
+				</div>
+				<div class="nav-list">
+					<div ><img src="__PUBLIC__/assets/design/img/yiwancheng.png" alt="">
+					<span>已完成</span></div>
+				</div>
+
+		</div>
+
+		<div class="content products">
+		<!-- 全部 -->
+		<div class="mainCont selected" style=" display: block">
+			{foreach $alltaskList as $alltask}
+			<div class="product-content " >
+				<a href="__APP__?m=Design&a=Building&id={$alltask['loupan_id']}">
+					<img src="{:_ASHIN_}/{$alltask['loupan_img']}" alt="">
+					<span class="product-font-one">{$alltask['loupan_name']}</span>
+					<span class="product-font-two"></span>
+					<span class="product-font-three">{$alltask['loupan_introduce']}</span>
+				</a>
+			</div>
+			{/foreach}
+		</div>
+		<!-- 未接单 -->
+		<div class="mainCont" style="display: none">
+			{foreach $untaskList as $untask}
+			<div class="product-content ">
+				<a href="__APP__?m=Design&a=Building&id={$untask['loupan_id']}&is_receive=0">
+					<img src="{:_ASHIN_}/{$untask['loupan_img']}" alt="">
+					<span class="product-font-one">{$untask['loupan_name']}</span>
+					<span class="product-font-two"></span>
+					<span class="product-font-three">{$untask['loupan_introduce']}</span>
+				</a>
+			</div>
+			{/foreach}
+		</div>
+		<!-- 设计中 -->
+		<div class="mainCont" style="display: none" >
+			{foreach $ingtaskList as $ingtask}
+			<div class="product-content " >
+				<a href="__APP__?m=Design&a=Building&id={$ingtask['loupan_id']}&is_receive=1">
+					<img src="{:_ASHIN_}/{$ingtask['loupan_img']}" alt="">
+					<span class="product-font-one">{$ingtask['loupan_name']}</span>
+					<span class="product-font-two"></span>
+					<span class="product-font-three">{$ingtask['loupan_introduce']}</span>
+				</a>
+			</div>
+			{/foreach}
+		</div>
+		<!-- 已完成 -->
+		<div class="mainCont" style="display: none" >
+			{foreach $finishtaskList as $finishtask}
+			<div class="product-content " >
+				<a href="__APP__?m=Design&a=Building&id={$finishtask['loupan_id']}&is_receive=3">
+					<img src="{:_ASHIN_}/{$finishtask['loupan_img']}" alt="">
+					<span class="product-font-one">{$finishtask['loupan_name']}</span>
+					<span class="product-font-two"></span>
+					<span class="product-font-three">{$finishtask['loupan_introduce']}</span>
+				</a>
+			</div>
+			{/foreach}
+		</div>
+		</div>
+
+		<div class="footer">
+			<span style="margin-left:6vw;">未接单：{$untaskCount}</span>
+			<span>设计中：{$ingtaskCount}</span>
+			<span>已完成：{$finishtaskCount}</span>
+		</div>
+	</div>
+</body>
+<script src="__PUBLIC__/assets/index/css/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(" .nav > div").click(function() {
+			var $index= $(this).index();
+			console.log($index)
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".products .mainCont").eq($(this).index()).show().siblings().hide();
+		})
+	})
+</script>
+</html>

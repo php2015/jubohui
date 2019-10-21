@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>设计师审核</title>
+	<script src="__PUBLIC__/assets/index/css/js/jquery-1.8.2.min.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .claer{
+            clear: both;
+        }
+     .yemian{
+         width: 100%;
+         height: 44px;
+         text-align:center
+     }
+     .text{
+         text-align:center; height: 44px;background:rgba(238,238,238,1);box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+
+
+
+     }
+     .aa {
+         text-align: center;
+         height: 44px;
+         background:rgba(238,238,238,1);
+         box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+     }
+        .shubiao{
+            width:122px;
+            /*height:147px;*/
+            font-size:12px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(0,0,0,1);
+            /*line-height:36px;*/
+            float:left;
+        }
+        .diannao{
+            width:105px;
+            height:27px;
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 12px 1px rgba(243,96,93,0.29);
+            border-radius:14px;
+            float:right;
+
+        }
+        a{
+            text-decoration:none;
+        }
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+        .imgBox{
+            float: right;
+        }
+        .products .mainCont {
+            display: none;
+            width:100%;
+            overflow: auto;
+            /*text-align: center;*/
+        }
+        .products .mainCont.selected {
+            display: block;
+        }
+        .active a{
+            font-size: 16px;
+            font-weight: 600;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div>
+    <div class="yemian" style="background: #ff0000;text-align: center;color: #fff;padding-top: 10px">
+        <!-- <a href="{url('Adjusting')}"><img src="__PUBLIC__/assets/index/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 15px; height: 15px;margin-left: 19px; float: left;margin-top: 6px;"></a> -->
+        <b style="margin-left: -19px;    font-size: 18px;">设计师审核</b>
+    </div>
+    <div class="apply-record">
+        <div style="display: flex;    background: #fff; height: 44px;
+    line-height: 44px;background: #eee" class="tab">
+            <div style="width: 50%; flex-direction:column;text-align: center" class="active"><a style="color: red; border-right: 1px solid #cbcbdc;    padding-right: 34%;margin-left: 32%;">待审核</a></div>
+            <div style="width: 50%; flex-direction:column;text-align: center"><a style="color: red;">已审核</a></div>
+        </div>
+        <div class="content products">
+            <div class="mainCont selected">
+			{foreach $nodesignList as $nodesign}
+                <div style="display: flex;   padding:10px">
+                    <div style="flex-direction:column;width: 50%; padding:10px; border-bottom: 1px solid #f00;">
+                        <div style=""> <b style="font-size:14px ">用户名称：{$nodesign['design_name']}</b></div>
+                        <div> <b style="font-size:14px ">手机：{$nodesign['mobile_phone']}</b></div>
+                        <div> <b style="font-size:14px ">申请时间：{$nodesign['add_time']|date="Y-m-d",###}</b></div>
+						<div>待审核</div>
+                    </div>					
+                    <div style="flex-direction:column;width: 50%; padding:10px; border-bottom: 1px solid #f00;">
+                        <div style="float: right;"><a href="__APP__?m=Manage&a=Noexamine&id={$nodesign['user_id']}"><img style="width: 16px;" src="__PUBLIC__/assets/index/img/arrow-right.png"></a></div>
+					</div>
+                </div>
+            {/foreach}    
+            </div>
+            <div class="mainCont">
+			{foreach $alldesignList as $alldesign}
+                <div style="display: flex;   padding:10px">
+                    <div style="flex-direction:column;width: 50%; padding:10px; border-bottom: 1px solid #f00;">
+                        <div style=""> <b style="font-size:14px ">用户名称：{$alldesign['design_name']}</b></div>
+                        <div> <b style="font-size:14px ">手机：{$alldesign['mobile_phone']}</b></div>
+                        <div> <b style="font-size:14px ">申请时间：{$alldesign['add_time']|date="Y-m-d",###}</b></div>
+						<div>已通过</div>
+                    </div>					
+                    <div style="flex-direction:column;width: 50%; padding:10px; border-bottom: 1px solid #f00;">
+                        <div style="float: right;"><a href="__APP__?m=Manage&a=checkexamine&id&id={$alldesign['user_id']}"><img style="width: 16px;" src="__PUBLIC__/assets/index/img/arrow-right.png"></a></div>
+					</div>
+                </div>
+            {/foreach} 
+            </div>
+        </div>
+    </div>
+<!-- 内容 -->
+
+
+    <div class="hh">
+        <div style="width:50%;text-align: center ;float:left"><a href="{url('index')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/index/img/tab_shouye.png" style="color: red"><div style="color: red">首页</div></a></div>
+        <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/index/img/tab_gongzuotai.png" style="color: red"><div style="color: red">工作台</div></a></div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function() {
+        $(" .tab > div").click(function() {
+            var $index=$(this).index();
+            console.log($index)
+            $(this).addClass("active").siblings().removeClass("active");
+            $(".products .mainCont").eq($(this).index()).show().siblings().hide();
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>项目入驻</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .yemian{
+            width: 100%;
+            height: 44px;
+            text-align:center
+        }
+        .yemian img{
+            margin: 11px 0px 11px 30px;
+        }
+        .yemian p{
+            font-size: 18px;
+            line-height: 44px;
+            margin: 0px auto;
+        }
+        .shanzhi{
+            height: 44px;
+            text-align: center;
+            background:rgba(238,238,238,1);
+            box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+        }
+        .shanzhi span{
+            font-size:24px;
+            font-family:Source Han Sans CN;
+            font-weight:400;
+            color:rgba(219,31,27,1);
+            line-height: 44px;
+        }
+        li{
+            list-style: none;
+        }
+        .user-information li{
+            height: 40px;
+            border-bottom: 1px solid rgba(212, 23, 45, 1);
+            margin-right: 40px;
+        }
+        .user-information em{
+            font-size:14px;
+            font-family:Source Han Sans CN;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            line-height:24px;
+            font-style: normal;
+            width: 65px;
+            height: 24px;
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 7px 1px rgba(0, 0, 0, 0.29);
+            display: inline-block;
+            padding-left: 5px;
+            margin-right: 10px;
+        }
+        .user-information p{
+            color: rgba(0, 0, 0, 1);
+            display: inline-block;
+            font-size:14px;
+            font-family:Source Han Sans CN;
+            font-weight:500;
+            line-height:24px;
+        }
+        .import{
+            text-align: center;
+        }
+        textarea{
+            width: 70%;
+            height: 180px;
+            border-radius: 12px;
+            background: rgba(25,18,34,0.1);
+            margin: 0px 40px;
+            border: 1px solid rgba(25,18,34,0.1);
+            font-size: 12px;
+            font-family: Source Han Sans CN;
+            font-weight: 500;
+            color: rgba(25,18,34,0.5);
+            line-height: 18px;
+            padding: 10px 0px 0px 10px;
+        }
+
+        a{
+            text-decoration:none;
+        }
+        .into{
+            /*width:75%;*/
+            /*height:40px;*/
+            background:rgba(206,16,16,1);
+            box-shadow:0px 0px 19px 2px rgba(213,42,42,0.4);
+            border-radius:20px;
+            /*border:1px solid red;*/
+            margin:0 40px;
+            text-align:center;
+            position: relative;
+            /*left: 0px;*/
+            top: 5px;
+            margin-top: 20px;
+        }
+        .into a{
+            font-size:18px;
+            font-family:Source Han Sans CN;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            line-height:40px;
+        }
+        .hh{
+            margin:0 auto;
+            position:fixed;
+            left:0;
+            /*top: 120px;*/
+            right:0;
+            bottom:0;
+            /*width:750px;*/
+            /*height:98px;*/
+            background:rgba(255,255,255,1);
+            box-shadow:0px 0px 5px 1px rgba(0, 0, 0, 0.05);
+        }
+        .hh a{
+            text-decoration: none;
+            color: rgba(206, 16, 16, 1);
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="yemian" style="background: #ff0000;">
+        <a href="{url('work')}"><img src="__PUBLIC__/assets/index/img/4ea4148429f7b751cda87848e60ec6c.png" style="width: 19px; height: 22px; float: left;"></a>
+        <p style="color: rgba(255, 255, 255, 1);">项目入驻详情</p>
+    </div>
+	<form action="__APP__?m=internal&a=Form" enctype="multipart/form-data" method="post">
+    <div class="shanzhi">
+        <span>订单号：{$orderOne['order_sn']}</span>
+    </div>
+    <ul class="user-information">
+        <li><p><em>用户名:</em>{$orderOne['user_name']}</p></li>
+        <li><p><em>用户手机:</em>{$orderOne['mobile_phone']}</p></li>
+        <li><p><em>用户地址:</em>{$orderOne['region']}</p></li>
+    </ul>
+    <div class="import"><textarea name="remarks">详细备注：</textarea></div>
+	<input type="hidden" name="quality_id" value="{$user_id}"/>
+	<input type="hidden" name="order_id" value="{$orderOne['order_id']}"/>
+    <div class="into"><input type="submit" value="安排入驻"/></div>
+    </form>
+	<div class="hh">
+        <div style="width:50%;text-align: center ;float:left"><a href="{url('Adjusting')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/index/img/tab_shouye.png" style="color: red"><div>首页</div></a></div>
+        <div style="width:50%; text-align: center; float:left"><a href="{url('Work')}"><img style="width: 23px; height:24px;" src="__PUBLIC__/assets/index/img/tab_gongzuotai.png" style="color: red"><div>工作台</div></a></div>
+    </div>
+</div>
+</body>
+</html>
